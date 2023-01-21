@@ -101,7 +101,7 @@ nav{
 .swiper .swiper-slide{
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 0;
+    background-position: center;
     position: relative;
 }
 .swiper-button-prev,
@@ -113,12 +113,11 @@ nav{
     top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
-    
 }
 .slider2-text{
     position: absolute;
     top: 50%;
-    right: -10%;
+    right: -15%;
     transform: translate(-50%, -50%);
     
 }
@@ -223,7 +222,7 @@ main{
 }
 .product-swiper{
     width: 100%;
-    height: 30rem;
+    height: auto;
     padding-bottom: 3rem;
 }
 .product-swiper .swiper-slide{
@@ -404,6 +403,9 @@ main{
     }
 }
 @media screen and (max-width: 768px) {
+    .swiper{
+        height: 60vh;
+    }
     main{
         padding: 2rem;
     }
@@ -419,6 +421,20 @@ main{
     .fa-bag-shopping, .fa-heart, .fa-magnifying-glass{
         font-size: 3rem;
     }
+    .slider2-text{
+        width: 50rem;
+        right: -25%;
+    }
+    .slider1-text{
+        width: 50rem;
+        left: 35%;
+    }
+    .slider-product-title{
+        font-size: 2.5rem;
+    }
+    .product-cost{
+        font-size: 3rem;
+    }
 }
 @media screen and (max-width: 650px) {
     .footer-content{
@@ -427,10 +443,16 @@ main{
         grid-row-gap: 2rem;
         padding: 2rem;
     }
+    .slider1-text{
+        left: 40%;
+    }
 }
 @media screen and (max-width: 500px) {
     :root{
-        font-size: 50%;
+        --swiper-navigation-size: 30px;
+    }
+    .swiper{
+        height: 50vh;
     }
     .categories, .banner-section{
         grid-template-columns: 1fr;
@@ -449,10 +471,38 @@ main{
     .fa-brands{
         font-size: 3rem;
     }
+    .slider1-text{
+        left: 45%;
+    }
+    .slider2-text{
+        right: -45%;
+    }
+    .footer-content{
+        font-size: 1.5rem;
+    }
+    .footer-main-info,
+    .footer-content-color,
+    .footer-nav-links a{
+        font-size: 2rem;
+    }
+    .footer-text-input{
+        width: 15rem;
+        height: 5rem;
+        font-size: 1.8rem;
+    }
+    .footer-form-btn{
+        height: 6rem;
+    }
+    .fa-paper-plane{
+        font-size: 2.5rem;
+    }
 }
 @media screen and (max-width: 350px) {
     :root{
-        font-size: 45%;
+        font-size: 35%;
+    }
+    .slider1-text{
+        left: 55%;
     }
 }
 
