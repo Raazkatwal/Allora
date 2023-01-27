@@ -1,3 +1,8 @@
+const menu_btn = document.querySelector(".fa-bars");
+const menu_close_btn = document.querySelector(".fa-xmark");
+const mbl_nav = document.querySelector(".mbl-nav");
+const main_content = document.getElementById("main-content");
+const footer = document.querySelector(".footer-content");
 const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
@@ -44,3 +49,13 @@ var Productswiper = new Swiper('.product-swiper', {
       },
     }
   });
+  menu_btn.addEventListener('click', ()=>{
+    mbl_nav.classList.add("mbl-nav-active");
+    main_content.classList.add("disable-click");
+    footer.classList.add("disable-click");
+  })
+  menu_close_btn.addEventListener('click', ()=>{
+    mbl_nav.classList.remove("mbl-nav-active");
+    main_content.classList.remove("disable-click");
+    footer.classList.remove("disable-click");
+  })

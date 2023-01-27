@@ -12,7 +12,7 @@
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
-nav{
+.desktop-nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,6 +29,12 @@ nav{
     flex: 1;
     display: flex;
     align-items: center;
+}
+.fa-bars{
+    font-size: 3rem;
+    margin-right: 2rem;
+    color: var(--secondary-color);
+    display: none;
 }
 .icon-section{
     display: flex;
@@ -92,6 +98,96 @@ nav{
     cursor: pointer;
     color: var(--secondary-color);
     transition: all ease-in-out .2s;
+}
+.mbl-nav{
+    position: fixed;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 100em 0 100em;
+    padding: 5rem;
+    left: -500rem;
+    transition: all .5s ease-in-out;
+}
+.mbl-nav-active{
+    left: 0;
+}
+.fa-xmark{
+    position: absolute;
+    right: -5rem;
+    font-size: 5rem;
+    color: white;
+    cursor: pointer;
+}
+.mbl-nav-search-section{
+    display: flex;
+    align-items: center;
+}
+.mbl-nav-search-input{
+    width: 100%;
+    height: 7rem;
+    outline: none;
+    border: thin solid #2e3237;
+    padding-left: 2rem;
+    font-size: 3rem;
+    color: white;
+    background-color: var(--secondary-color);
+    border-radius: .8rem 0 0 .8rem;
+}
+.mbl-nav-search-input:focus{
+    border: .2rem solid var(--accent-color);
+}
+.mbl-nav-search-icon{
+    width: 8rem;
+    height: 7rem;
+    background-color: var(--accent-color);
+    outline: none;
+    border: none;
+    border-radius: 0 .8rem .8rem 0;
+}
+.mbl-nav-search-icon .fa-magnifying-glass{
+    color: white;
+}
+.mbl-nav-links{
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+.mbl-nav-links a{
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    border-bottom: thin solid #2e3237;
+}
+.currency-selection-title{
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+.currency-btns-list{
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.currency-btn{
+    width: 12rem;
+    height: 6rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: #303030;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+}
+.currency-country-img{
+    width: 2.5rem;
+}
+.disable-click{
+    pointer-events: none;
 }
 .swiper{
     height: calc(100vh - 8rem);
@@ -403,6 +499,9 @@ main{
     }
 }
 @media screen and (max-width: 768px) {
+    .fa-bars{
+        display: block;
+    }
     .swiper{
         height: 60vh;
     }
