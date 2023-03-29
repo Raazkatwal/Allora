@@ -9,6 +9,7 @@
     --primary-color: #ffffff;
     --secondary-color: #222222;
     --accent-color: #20C7D9;
+    --alert-color: #b10001;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
@@ -310,18 +311,21 @@ main{
 .women-tile{    
     background-image: url(img/women.jpg);
 }
-.swiper-heading{
+.product-grid-heading{
     margin-top: 4rem;
     text-align: center;
     font-size: 5rem;
     color: var(--secondary-color);
 }
-.product-swiper{
-    width: 100%;
-    height: auto;
-    padding-bottom: 3rem;
+.product-grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1.5rem;
 }
-.product-swiper .swiper-slide{
+.product-tile{
+    width: 22rem;
+}
+.swiper-slide, .product-tile{
     border: 0.1rem solid var(--accent-color);
 }
 .slider-product-img{
@@ -550,8 +554,19 @@ main{
     :root{
         --swiper-navigation-size: 30px;
     }
+    .fa-heart,
+    .user-contents .fa-magnifying-glass{
+        display: none;
+    }
+    .desktop-nav{
+        height: 9rem;
+    }
+    .fa-bag-shopping, .fa-bars{
+        font-size: 3.5rem;
+    }
     .swiper{
         height: 50vh;
+        margin-top: 9rem;
     }
     .categories, .banner-section{
         grid-template-columns: 1fr;
