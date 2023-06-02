@@ -43,7 +43,7 @@
 .form-input{
     width: 95%;
     height: 4rem;
-    border-radius: .2rem;
+    border-radius: .6rem;
     background-color: transparent;
     border: thin solid #ccc;
     outline: none;
@@ -52,6 +52,15 @@
 }
 .form-input:focus{
     border: thin solid var(--accent-color);
+}
+.fa-eye, .fa-eye-slash{
+   font-size: 2rem;
+   position: absolute;
+    right: 5%;
+    transform: translateY(50%);
+}
+.fa-eye:hover, .fa-eye-slash:hover{
+    cursor: pointer;
 }
 .form-btn{
     height: 4rem;
@@ -62,13 +71,14 @@
     background-color: var(--accent-color);
     border: none;
     outline: none;
-    border-radius: .2rem;
+    border-radius: .6rem;
     cursor: pointer;
 }
 .login-form-btn, .register-form-btn{
     outline: none;
     border: none;
     color: #999;
+    background-color: transparent;
     font-size: 2.5rem;
     font-weight: 600;
     margin: 0 3rem;
@@ -81,4 +91,27 @@
 .active-btn{
     color: black;
     transform: scale(1.5);
+}
+.input-error{
+    border: thin solid var(--alert-color);
+}
+.email-error::after{
+    content: 'This email address is already taken';
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
+.username-error::after{
+    content: 'This username is already taken';
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
+.password-error::after{
+    content: 'Password cant be blank';
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
+@media screen and (max-width: 925px){
+    .fa-eye, .fa-eye-slash{
+        transform: translateY(-150%);
+    }
 }

@@ -4,10 +4,18 @@ if (isset($_POST['register'])) {
     $user = $_POST['regusername'];
     $mail = $_POST['regemail'];
     $pass = $_POST['regpassword'];
-    $pass = password_hash($pass, PASSWORD_DEFAULT);
-    $query = "INSERT INTO `userinfo`(`username`, `email`, `password`) VALUES ('$user','$mail','$pass')";
-    mysqli_query($con, $query);
-    header('location:index.php');
+    if (empty($pass)) {
+        echo '
+        <script src = "script.js" defer>
+            password_is_null();
+        <script>
+        ';
+    }else{
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        $query = "INSERT INTO `userinfo`(`username`, `email`, `password`) VALUES ('$user','$mail','$pass')";
+        mysqli_query($con, $query);
+        header('location:index.php');
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -24,6 +32,7 @@ if (isset($_POST['register'])) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="login.css">
     <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php require 'navbar.php' ?>
@@ -36,31 +45,33 @@ if (isset($_POST['register'])) {
             <div class="login-section">
                 <div>
                     <label for="logemail">Email address*</label>
-                    <input type="text" id="logemail" class="form-input">
+                    <input type="text" id="logemail" class="form-input" autocomplete="off">
                 </div>
-                <div>
+                <div class="login_password_div">
                     <label for="logpassword">Password*</label>
-                    <input type="password" id="logpassword" class="form-input">
+                    <input type="password" id="logpassword" class="form-input" autocomplete="off">
+                    <i class="fa-regular fa-eye-slash eye-icon"></i>
                 </div>
                 <input type="submit" value="Login" class="form-btn">
             </div>
             <div class="register-section">
                 <div>
                     <label for="regemail">Email address*</label>
-                    <input type="text" id="regemail" class="form-input" name="regemail">
+                    <input type="text" id="regemail" class="form-input" name="regemail" autocomplete="off">
                 </div>
                 <div>
                     <label for="reusername">Username*</label>
-                    <input type="text" id="reusername" class="form-input" name="regusername">
+                    <input type="text" id="reusername" class="form-input" name="regusername" autocomplete="off">
                 </div>
                 <div>
                     <label for="regpassword">Password*</label>
-                    <input type="password" id="regpassword" class="form-input" name="regpassword">
+                    <input type="password" id="regpassword" class="form-input" name="regpassword" autocomplete="off">
+                    <i class="fa-regular fa-eye-slash eye-icon"></i>
                 </div>
                 <div>
                     <input type="checkbox" id="terms-and-policy"><label for="terms-and-policy"> I agree with all the Terms and conditions</label>
                 </div>
-                <input type="submit" value="Register" class="form-btn" name="register">
+                <input type="submit" value="Register" class="form-btn" name="register" id="register-submit-btn">
             </div>
         </div>
     </form>

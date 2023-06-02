@@ -44,12 +44,8 @@
     text-decoration: none;
 }
 .logo{
-    width: 5rem;
-}
-.logo-name{
-    font-size: 3.8rem;
-    color: var(--secondary-color);
-    text-transform: uppercase;
+    width: 12rem;
+    height: 5rem;
 }
 .nav-links{
     flex: .5;
@@ -321,6 +317,7 @@ main{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 1.5rem;
+    margin-bottom: 5rem;
 }
 .product-tile{
     width: 22rem;
@@ -393,9 +390,6 @@ main{
     padding: 2rem 5rem;
     color: var(--primary-color);
     justify-items: center;
-}
-#footer-logo-name{
-    color: var(--primary-color);
 }
 .footer-main-info{
     font-size: 1.4rem;
