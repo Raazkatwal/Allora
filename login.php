@@ -26,13 +26,8 @@ if (isset($_POST['register'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalabe=no">
     <link rel="icon" href="img/logo.png">
     <title>Login / Sign up - Allora</title>
-    <script src="https://kit.fontawesome.com/a3c06e4acc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <?php require 'links.php'?>
     <link rel="stylesheet" href="login.css">
-    <script src="script.js" defer></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </head>
 <body>
 <?php require 'navbar.php' ?>
