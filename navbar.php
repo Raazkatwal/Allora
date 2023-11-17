@@ -10,6 +10,7 @@
                 <a href="#">About Us</a>
                 <a href="#">Contact Us</a>
                 <a href="login.php">Login / Register</a>
+                <a href="#" onclick="window.open('admin_panel.php'); return false" target="_blank">admin</a>
             </div>
         </div>
         <div class="user-contents">

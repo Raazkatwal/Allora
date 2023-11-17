@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    --panel-color: rgb(214, 251, 255);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.9rem;
+    border-bottom: thin solid rgb(168, 168, 168);
+}
+.icon{
+    width: 20rem;
+}
+.welcome-text{
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.sidebar{
+    height: 90vh;
+    width: 45vh;
+    background-color: #fff;
+}
+.sidebar_content{
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+}
+.sideheading{
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin-bottom: 2rem;
+}
+.sidelinks{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+.sidelinks a,.close_btn{
+    font-size: 1.7rem;
+    background-color: var(--panel-color);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+.main_content{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: var(--panel-color);
+}
+.orders_section{
+    width: 100%;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+}
+.orders_table{
+    width: 90%;
+    height: 80%;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+.table_heading{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding: 2rem 0 0 2rem;
+}
+.heading_row, .row{
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    justify-content: space-between;
+    padding: .5rem 2rem;
+    font-size: 1.2rem;
+}
+.heading_row{
+    text-transform: uppercase;
+    background-color: #adadad;
+}
+.profile_pic{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.status{
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .5rem;
+    text-transform: uppercase;
+}
+.pending{
+    background-color: var(--alert-color);
+}
