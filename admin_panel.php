@@ -26,48 +26,104 @@
                     <a href="">Lorem, ipsum.</a>
                     <a href="">Lorem ipsum dolor sit.</a>
                 </div>
-                <a href="#" onclick="window.close();return false;" class="close_btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
+                    <a href="#" onclick="window.close();return false;" class="close_btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
             </div>
         </div>
         <div class="orders_section">
             <div class="orders_table">
                 <h2 class="table_heading">Orders</h2>
-                <div class="heading_row">
-                    <p>#</p>
-                    <p>avatar</p>
-                    <p>id</p>
-                    <p>name</p>
-                    <p>product</p>
-                    <p>quantity</p>
-                    <p>status</p>
-                </div>
-                <div class="row">
-                    <p>1</p>
-                    <img src="img/men.jpg" alt="avatar" class="profile_pic">
-                    <p>3254</p>
-                    <p>XYZ</p>
-                    <p>Mouse</p>
-                    <p>1</p>
-                    <div class="status complete">Complete</div>
-                </div>
-                <div class="row">
-                    <p>2</p>
-                    <img src="img/men.jpg" alt="avatar" class="profile_pic">
-                    <p>6548</p>
-                    <p>ABC</p>
-                    <p>Airpod</p>
-                    <p>3</p>
-                    <div class="status complete">Complete</div>
-                </div>
-                <div class="row">
-                    <p>3</p>
-                    <img src="img/men.jpg" alt="avatar" class="profile_pic">
-                    <p>3254</p>
-                    <p>QWE</p>
-                    <p>Laptop</p>
-                    <p>1</p>
-                    <div class="status pending">pending</div>
-                </div>
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Avatar</th>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>product</th>
+                        <th>quantity</th>
+                        <th>status</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>3254</td>
+                        <td>XYZ</td>
+                        <td>Mouse</td>
+                        <td>2</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>6584</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>9876</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status pending">pending</div></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>3254</td>
+                        <td>XYZ</td>
+                        <td>Mouse</td>
+                        <td>2</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>6584</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>9876</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status pending">pending</div></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>3254</td>
+                        <td>XYZ</td>
+                        <td>Mouse</td>
+                        <td>2</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>6584</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status">complete</div></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
+                        <td>9876</td>
+                        <td>ABC</td>
+                        <td>Airpod</td>
+                        <td>1</td>
+                        <td><div class="status pending">pending</div></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
