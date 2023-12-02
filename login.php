@@ -17,11 +17,11 @@
         </h1>
             <div class="login-section">
                 <div>
-                    <label for="logemail">Email address*</label>
-                    <input type="text" id="logemail" class="form-input" autocomplete="off" required>
+                    <label for="email">Email address*</label>
+                    <input type="text" id="email" class="form-input" autocomplete="off" required>
                 </div>
                 <div class="password_div">
-                    <label for="logpassword">Password*</label>
+                    <label for="password">Password*</label>
                     <input type="password" id="password" class="form-input" autocomplete="off" required>
                     <i class="fa-regular fa-eye-slash eye-icon"></i>
                 </div>
