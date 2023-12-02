@@ -9,7 +9,7 @@
                 <a href="#">Categories</a>
                 <a href="#">About Us</a>
                 <a href="#">Contact Us</a>
-                <a href="login.php">Login / Register</a>
+                <a href="login.php">Login</a>
                 <a href="#" onclick="window.open('admin_panel.php'); return false" target="_blank">admin</a>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <a href="#">Categories</a>
             <a href="#">Products</a>
             <a href="#">My Wishlist</a>
-            <a href="login.php"><i class="fa-regular fa-user"></i> Login / Register</a>
+            <a href="login.php"><i class="fa-regular fa-user"></i> Login</a>
         </div>
         <div>
             <h1 class="currency-selection-title">Select Currency:</h1>
