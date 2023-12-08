@@ -15,19 +15,19 @@
         <h1 class="form-title">
             Welcome Back
         </h1>
-            <div class="login-section">
-                <div>
-                    <label for="email">Email address*</label>
-                    <input type="text" id="email" class="form-input" autocomplete="off" required>
-                </div>
-                <div class="password_div">
-                    <label for="password">Password*</label>
-                    <input type="password" id="password" class="form-input" autocomplete="off" required>
-                    <i class="fa-regular fa-eye-slash eye-icon"></i>
-                </div>
-                <input type="submit" value="Login" class="form-btn">
+        <div class="login-section">
+            <div>
+                <label for="email">Email address*</label>
+                <input type="text" id="email" class="form-input" autocomplete="off">
             </div>
-            <p class="gotosignup">Dont have a account ? <a href="signup.php">Register here</a></p>
+            <div class="password_div">
+                <label for="password">Password*</label>
+                <input type="password" id="password" class="form-input" autocomplete="off">
+                <i class="fa-regular fa-eye-slash eye-icon"></i>
+            </div>
+            <input type="submit" value="Login" class="form-btn">
+        </div>
+        <p class="linktext">Dont have a account ? <a href="signup.php">Register here</a></p>
     </form>
 </main>
 <?php require 'footer.php' ?>
