@@ -1,6 +1,5 @@
 const eye_icon = document.querySelectorAll(".eye-icon");
-const login_password_input = document.querySelector("#password");
-const register_password_input = document.querySelector("#regpassword");
+// const password_input = document.querySelector("#password");
 const menu_btn = document.querySelector(".fa-bars");
 const menu_close_btn = document.querySelector(".fa-xmark");
 const mbl_nav = document.querySelector(".mbl-nav");
@@ -31,11 +30,9 @@ const swiper = new Swiper('.swiper', {
     footer.classList.remove("disable-click");
   })
   function password_is_null() {
-    document.querySelector("#register-submit-btn").preventDefault();
-    pwd_text_box = register_password_input;
-    pwd_text_box.classList.add("input-error");
-    pwd_text_box.parentElement.classList.add("password-error");
-    pwd_text_box.value = "";
+    password_input.classList.add("input-error");
+    password_input.parentElement.classList.add("password-error");
+    password_input.value = "";
   }
   function password_input_type_toggle(a) {
     (a.type=='text')? a.type = 'password' : a.type = 'text';

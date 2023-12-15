@@ -72,6 +72,9 @@ label{
     color: var(--alert-color);
     font-size: 1.5rem;
 }
+.password-error{
+    border-color: var(--alert-color);
+}
 .password-error::after{
     content: 'Password cant be blank';
     color: var(--alert-color);
