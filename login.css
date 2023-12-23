@@ -40,8 +40,7 @@ label{
    font-size: 2rem;
    position: absolute;
     right: 1rem;
-    bottom: 45%;
-    transform: translateY(100%);
+    transform: translateY(-150%);
 }
 .fa-eye:hover, .fa-eye-slash:hover{
     cursor: pointer;
@@ -63,20 +62,43 @@ label{
     border: thin solid var(--alert-color);
 }
 .email-error::after{
-    content: 'This email address is already taken';
+    display: block;
+    content: 'Email already taken';
     color: var(--alert-color);
     font-size: 1.5rem;
 }
 .username-error::after{
-    content: 'This username is already taken';
+    display: block;
+    content: 'Username already taken';
     color: var(--alert-color);
     font-size: 1.5rem;
 }
-.password-error{
+.password-error > input{
     border-color: var(--alert-color);
 }
 .password-error::after{
+    display: block;
     content: 'Password cant be blank';
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
+.email-null-error > input,
+.email-error > input{
+    border-color: var(--alert-color);
+}
+.email-null-error::after{
+    display: block;
+    content: 'Email cant be blank';
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
+.username-null-error > input,
+.username-error > input{
+    border-color: var(--alert-color);
+}
+.username-null-error::after{
+    display: block;
+    content: 'Username cant be blank';
     color: var(--alert-color);
     font-size: 1.5rem;
 }
