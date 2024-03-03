@@ -9,7 +9,11 @@
                 <a href="#">Categories</a>
                 <a href="#">About Us</a>
                 <a href="#">Contact Us</a>
-                <a href="login.php">Login</a>
+                <?php
+                    if (!isset($_SESSION['IS_LOGIN'])) {
+                    echo '<a href="login.php">Login</a>';
+                }
+                ?>
                 <a href="#" onclick="window.open('admin_panel.php'); return false" target="_blank">admin</a>
             </div>
         </div>
@@ -17,6 +21,11 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-regular fa-heart"></i>
             <i class="fa-solid fa-bag-shopping"></i>
+            <?php
+            if (isset($_SESSION['IS_LOGIN'])) {
+                echo "<div class='user-profile-pic'>".strtoupper(substr($_SESSION['username'], 0,  1))."</div>";
+            }
+            ?>
         </div>
     </nav>
     <nav class="mbl-nav">

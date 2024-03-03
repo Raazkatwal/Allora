@@ -88,6 +88,8 @@
     flex: .11;
     padding-right: 5rem;
     display: flex;
+    align-items: center;
+    gap: 2rem;
     justify-content: space-between;
 }
 .fa-magnifying-glass, .fa-heart, .fa-bag-shopping{
@@ -95,6 +97,17 @@
     cursor: pointer;
     color: var(--secondary-color);
     transition: all ease-in-out .2s;
+}
+.user-profile-pic{
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 100%;
+    background-color: navy;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
 }
 .mbl-nav{
     position: fixed;

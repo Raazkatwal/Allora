@@ -1,9 +1,19 @@
 #main-content{
+    padding: 8rem;
     display: grid;
     place-items: center;
     height: 90vh;
     user-select: none;
     -webkit-user-drag: none;
+    background-image: url(img/loginBg.svg);
+}
+.login-form{
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0.8rem 3.2rem 0 rgba(0, 0, 0, 0.37);
+    border-radius: 1rem;
+    padding: 5rem;
 }
 .form-title{
     font-size: 3rem;
@@ -25,13 +35,13 @@ label{
     height: 4rem;
     border-radius: .6rem;
     background-color: transparent;
-    border: thin solid #ccc;
+    border: .2rem solid var(--secondary-color);
     outline: none;
     font-size: 1.8rem;
     padding: 0 1rem;
 }
 .form-input:focus{
-    border: thin solid var(--accent-color);
+    border: .2rem solid var(--accent-color);
 }
 .password_div{
     position: relative;
@@ -73,7 +83,13 @@ label{
     color: var(--alert-color);
     font-size: 1.5rem;
 }
-.password-error > input{
+.password-error > input,
+.password-not-match-error > input,
+.email-null-error > input,
+.email-error > input,
+.email-not-found-error> input,
+.username-null-error > input,
+.username-error > input{
     border-color: var(--alert-color);
 }
 .password-error::after{
@@ -82,9 +98,11 @@ label{
     color: var(--alert-color);
     font-size: 1.5rem;
 }
-.email-null-error > input,
-.email-error > input{
-    border-color: var(--alert-color);
+.password-not-match-error::after{
+    display: block;
+    content: 'Password didnt match';
+    color: var(--alert-color);
+    font-size: 1.5rem;
 }
 .email-null-error::after{
     display: block;
@@ -92,9 +110,11 @@ label{
     color: var(--alert-color);
     font-size: 1.5rem;
 }
-.username-null-error > input,
-.username-error > input{
-    border-color: var(--alert-color);
+.email-not-found-error::after{
+    display: block;
+    content: 'Email not found';
+    color: var(--alert-color);
+    font-size: 1.5rem;
 }
 .username-null-error::after{
     display: block;
