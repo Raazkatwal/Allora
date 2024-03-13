@@ -6,6 +6,8 @@
     user-select: none;
     -webkit-user-drag: none;
     background-image: url(img/loginBg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .login-form{
     backdrop-filter: blur(1rem);
@@ -24,7 +26,7 @@
     width: 100%;
     height: 100%;
 }
-.login-section div{
+.login-section > div{
     margin: 2rem 0;
 }
 label{
@@ -46,9 +48,14 @@ label{
 .password_div{
     position: relative;
 }
-.fa-eye, .fa-eye-slash{
-   font-size: 2rem;
-   position: absolute;
+.password-options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fa-eye, .a-eye-slash, .eye-icon{
+    font-size: 2rem;
+    position: absolute;
     right: 1rem;
     transform: translateY(-150%);
 }
@@ -67,6 +74,7 @@ label{
     outline: none;
     border-radius: .6rem;
     cursor: pointer;
+    margin-bottom: 2rem;
 }
 .input-error{
     border: thin solid var(--alert-color);
@@ -124,5 +132,4 @@ label{
 }
 .linktext{
     font-size: 1.3rem;
-    margin-top: 2rem;
 }

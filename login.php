@@ -19,6 +19,11 @@ if (isset($_POST['submit']))
         if ($verify) {
             $_SESSION['IS_LOGIN']=true;
             $_SESSION['username']=$res['username'];
+            if (isset($_POST['remember'])) {
+                $token = bin2hex(random_bytes(16));
+                mysqli_query($con, "UPDATE `userinfo` SET `remember_token` = '$token' WHERE `email` = '$email';");
+                setcookie('remember_token', $token, time() + (30 * 24 * 60 * 60), '/'); //cookie for 30 days.
+            }
             header('location:index.php');
             exit;
         }else {
@@ -54,6 +59,12 @@ if (isset($_POST['submit']))
                 <label for="password">Password*</label>
                 <input type="password" name="password" id="password" class="form-input" autocomplete="off">
                 <i class="fa-regular fa-eye-slash eye-icon"></i>
+            </div>
+            <div class="password-options">
+                <div>
+                    <input type="checkbox" id="form-checkbox" name="remember"><label for="form-checkbox"> Remember me</label>
+                </div>
+                <p class="linktext"><a href="#">Forgot Password?</a></p>
             </div>
             <input type="submit" name="submit" value="Login" class="form-btn">
         </div>

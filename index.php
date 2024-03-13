@@ -1,5 +1,14 @@
 <?php
 include 'db.php';
+$token_check = $_COOKIE['remember_token'] ?? null;
+if (!empty($token_check)) {
+    $query = mysqli_query($con, "SELECT * FROM `userinfo` WHERE `remember_token` = '$token_check';");
+    if (mysqli_num_rows($query) > 0) {
+        $res = mysqli_fetch_assoc($query);
+        $_SESSION['IS_LOGIN']=true;
+        $_SESSION['username']=$res['username'];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
