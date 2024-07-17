@@ -296,12 +296,13 @@
     transform: translateY(-50%);
     text-transform: uppercase;
 }
-.gay-tile{    
-    background-image: linear-gradient(rgba(255, 0, 0, 0.25), rgba(255, 166, 0, 0.25), rgba(255, 255, 0, 0.25), rgba(0, 128, 0, 0.25), rgba(0, 0, 255, 0.25), rgba(238, 130, 238, 0.25)), url(/img/gay.jpg);
+.sale-tile{    
+    background-image: linear-gradient(to left, rgb(225, 228, 233), rgba(255, 228, 233, 0.05)), url(/img/sale.jpg);
+    color: var(--secondary-color);
     user-select: none;
     cursor: not-allowed;
 }
-.gay-tile .category-title,
+.sale-tile .category-title,
 .women-tile .category-title{
     position: absolute;
     font-size: 4rem;
@@ -309,7 +310,7 @@
     right: 5%;
     transform: translateY(-50%);
 }
-.gay-tile .category-link,
+.sale-tile .category-link,
 .women-tile .category-link{
     position: absolute;
     font-size: 1.5rem;
@@ -321,7 +322,7 @@
 .women-tile{    
     background-image: url(/img/women.jpg);
     background-position: -7rem 0;
-    background-color: #E1E4E9;
+    background-color: #e1e4e9;
 }
 .product-grid-heading{
     margin-top: 4rem;

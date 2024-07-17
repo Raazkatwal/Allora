@@ -32,11 +32,11 @@
     <div class="categories">
         <a href="#" class="category-tile men-tile">
             <h1 class="category-title">For Men's</h1>
-            <h3 class="category-link">Shop now <i class="fa-solid fa-arrow-right"></i></h3>
+            <h3 class="category-link">Shop now<i class="fa-solid fa-arrow-right"></i></h3>
         </a>
-        <a class="category-tile gay-tile">
-            <h1 class="category-title">For Gay's</h1>
-            <h3 class="category-link">Shop now <i class="fa-solid fa-transgender"></i></h3>
+        <a class="category-tile sale-tile">
+            <h1 class="category-title">For Sale</h1>
+            <h3 class="category-link">Shop now at 99% discount <i class="fa-solid fa-arrow-right"></i></h3>
         </a>
         <a href="#" class="category-tile women-tile">
             <h1 class="category-title">For Women's</h1>
