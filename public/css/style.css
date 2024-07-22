@@ -260,7 +260,7 @@
     cursor: pointer;
 }
 .main-content{
-    padding: 5rem;
+    padding: 0 5rem;
     background-color: var(--primary-color);
     overflow: hidden;
 }

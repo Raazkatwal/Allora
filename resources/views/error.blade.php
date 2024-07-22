@@ -21,7 +21,7 @@
         height: 4rem;
         font-size: 1.8rem;
         font-weight: 600;
-        color: var(--text-color);
+        color: white;
         background-color: var(--accent-color);
         border: none;
         outline: none;
@@ -35,7 +35,7 @@
 <div class="container">
     <div>
         <h1 class="heading">Error 404</h1>
-        <img src="img/404.png" alt="error 404">
+        <img src= {{ asset('img/404.png') }} alt="error 404">
         <p class="texts">OOPS! THAT PAGE CAN'T BE FOUND</p>
         <a href={{ route('index') }}>
             <button class="home-btn">Go Home</button>

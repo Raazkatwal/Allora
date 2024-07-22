@@ -43,3 +43,17 @@ const swiper = new Swiper('.swiper', {
         password_input_type_toggle(password_input);           
     })
   });
+
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const navbar = document.querySelector('.desktop-nav');
+    const mainContent = document.querySelector('.main-content');
+
+    function adjustMainContentPadding() {
+        const navbarHeight = navbar.offsetHeight;
+        mainContent.style.paddingTop = `${navbarHeight}px`;
+    }
+
+    adjustMainContentPadding();
+
+    window.addEventListener('resize', adjustMainContentPadding);
+});

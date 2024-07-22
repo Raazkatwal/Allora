@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalabe=no">
-    <title>Allora - @yield('title', 'Your Best Fashion Store')</title>
+    <title>Allora | @yield('title', 'Your Best Fashion Store')</title>
     @stack('links')
 </head>
 <body>
