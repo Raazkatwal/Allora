@@ -15,20 +15,26 @@
         </h1>
         <div class="login-section">
             <div>
-                <label for="email">Email address*</label>
-                <input type="text" id="email" class="form-input" name="email" autocomplete="off">
+                <label for="email">Email address</label>
+                <input type="text" id="email" class="form-input @error('email') input-error @enderror" name="email" value="{{ old('email') }}" autocomplete="off" >
+                <span class="input-error-msg">
+                    @error('email') {{$message}} @enderror
+                </span>
             </div>
             <div>
-                <label for="username">Username*</label>
-                <input type="text" id="username" class="form-input" name="username" autocomplete="off">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-input @error('username') input-error @enderror" name="username" value="{{ old('username') }}"  autocomplete="off">
+                <span class="input-error-msg">
+                    @error('username') {{$message}} @enderror
+                </span>
             </div>
             <div class="password_div">
-                <label for="password">Password*</label>
-                <input type="password" id="password" class="form-input" name="password" autocomplete="off">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-input @error('password') input-error @enderror" name="password" autocomplete="off">
                 <i class="fa-regular fa-eye-slash eye-icon"></i>
-            </div>
-            <div>
-                <input type="checkbox" id="terms-and-policy"><label for="terms-and-policy"> I agree with all the Terms and conditions</label>
+                <span class="input-error-msg">
+                    @error('password') {{$message}} @enderror
+                </span>
             </div>
             <input type="submit" value="Register" class="form-btn">
         </div>

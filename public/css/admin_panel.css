@@ -1,0 +1,113 @@
+:root{
+    --panel-color: #8ab0e7;
+}
+nav{
+    top: 0;
+    border-bottom: thin solid rgb(168, 168, 168);
+    background-color: #fff;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 92vw;
+    padding: 1rem 5rem;
+    z-index: 99;
+}
+.icon{
+    width: 20rem;
+}
+.welcome-text{
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+.sidebar{
+    min-height: 90vh;
+    width: 45vh;
+    background-color: #fff;
+}
+.sidebar_content{
+    position: fixed;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 84vh;
+}
+.sideheading{
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin-bottom: 2rem;
+}
+.sidelinks{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+.sidelinks a,.close_btn{
+    font-size: 1.7rem;
+    background-color: var(--panel-color);
+    padding: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+.main_content{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: var(--panel-color);
+    margin-top: 5rem;
+}
+.orders_section{
+    width: 100%;
+    min-height: 90vh;
+    display: grid;
+    place-items: center;
+}
+.orders_table{
+    width: 90%;
+    margin: 2rem 0;
+    min-height: 85%;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+.table_heading{
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding: 2rem 0 0 2rem;
+}
+table{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+}
+th{
+    text-transform: uppercase;
+    background-color: #adadad;
+    height: 3rem;
+}
+th, td{
+    padding: .8rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+.profile_pic{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 100%;
+}
+.status{
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    padding: .5rem;
+    text-align: center;
+    border-radius: .5rem;
+    text-transform: uppercase;
+    width: 50%;
+    margin: auto;
+}
+.pending{
+    background-color: var(--alert-color);
+}

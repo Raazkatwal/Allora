@@ -9,14 +9,14 @@
             <a href="#">Categories</a>
             <a href="#">About Us</a>
             <a href="#">Contact Us</a>
-            <a href="#" onclick="window.open({{route('admin.panel')}}); return false" target="_blank">admin</a>
+            <a href="#" onclick="window.open('{{route('admin.panel')}}'); return false" target="_blank">Admin</a>
             <a href={{route('login')}}><i class="fa-regular fa-user"></i> Login</a>
         </div>
     </div>
     <div class="user-contents">
         <i class="fa-solid fa-magnifying-glass"></i>
         <i class="fa-regular fa-heart"></i>
-        <i class="fa-solid fa-bag-shopping"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
     </div>
 </nav>
 <nav class="mbl-nav">

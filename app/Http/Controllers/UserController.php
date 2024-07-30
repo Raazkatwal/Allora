@@ -2,24 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
-
 
 class UserController extends Controller
 {
     public function addUser(Request $req){
-        $user = DB::table('users')
-        ->insert(
-            [
-                'email' => $req->email,
-                'username' => $req->username,
-                'password' => $req->password,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ]
-        );
+        $req->validate([
+            'email' => 'required|email|unique:App\Models\User,email',
+            'username' => 'required',
+            'password' => 'required|min:6',
+        ]);
+        $user = User::create([
+            'email' => $req->email,
+            'password' => $req->password,
+            'username' => $req->username,
+        ]);
         if ($user) {
             return redirect()->route('index');
         }

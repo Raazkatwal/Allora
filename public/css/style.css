@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -62,15 +61,15 @@
     font-weight: 600;
 }
 .nav-links a:hover,
-.fa-bag-shopping:hover,
+.fa-cart-shopping:hover,
 .fa-heart:hover{
     color: var(--accent-color);
 }
-.fa-heart, .fa-bag-shopping{
+.fa-heart, .fa-cart-shopping{
     position: relative;
 }
 .fa-heart::after,
-.fa-bag-shopping::after{
+.fa-cart-shopping::after{
     position: absolute;
     content: '10';
     background-color: var(--accent-color);
@@ -92,7 +91,7 @@
     gap: 2rem;
     justify-content: space-between;
 }
-.fa-magnifying-glass, .fa-heart, .fa-bag-shopping{
+.fa-magnifying-glass, .fa-heart, .fa-cart-shopping{
     font-size: 2.2rem;
     cursor: pointer;
     color: var(--secondary-color);
@@ -530,7 +529,7 @@
     .user-contents{
         gap: 3rem;
     }
-    .fa-bag-shopping, .fa-heart, .fa-magnifying-glass{
+    .fa-cart-shopping, .fa-heart, .fa-magnifying-glass{
         font-size: 3rem;
     }
     .slider2-text{
@@ -570,7 +569,7 @@
     .desktop-nav{
         height: 9rem;
     }
-    .fa-bag-shopping, .fa-bars{
+    .fa-cart-shopping, .fa-bars{
         font-size: 3.5rem;
     }
     .swiper{
