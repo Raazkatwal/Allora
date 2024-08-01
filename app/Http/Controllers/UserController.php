@@ -22,4 +22,8 @@ class UserController extends Controller
             return redirect()->route('index');
         }
     }
+    public function test(){
+        $res = User::all();
+        return $res;
+    }
 }

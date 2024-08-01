@@ -21,110 +21,16 @@
             <div class="sidebar_content">
                 <h1 class="sideheading">Menu</h1>
                 <div class="sidelinks">
+                    <a href=""><i class="fa-solid fa-bag-shopping"></i> Products</a>
                     <a href=""><i class="fa-solid fa-gear"></i> Site settings</a>
                     <a href=""><i class="fa-solid fa-cart-shopping"></i> Orders</a>
                     <a href="">Lorem ipsum dolor sit.</a>
                 </div>
-                    <a href="#" onclick="window.close();return false;" class="close_btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
+                    <a href="" onclick="window.close();return false;" class="close_btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
             </div>
         </div>
-        <div class="orders_section">
-            <div class="orders_table">
-                <h2 class="table_heading">Orders</h2>
-                <table>
-                    <tr>
-                        <th>#</th>
-                        <th>Avatar</th>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>product</th>
-                        <th>quantity</th>
-                        <th>status</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>3254</td>
-                        <td>XYZ</td>
-                        <td>Mouse</td>
-                        <td>2</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>6584</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>9876</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status pending">pending</div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>3254</td>
-                        <td>XYZ</td>
-                        <td>Mouse</td>
-                        <td>2</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>6584</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>9876</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status pending">pending</div></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>3254</td>
-                        <td>XYZ</td>
-                        <td>Mouse</td>
-                        <td>2</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>6584</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status">complete</div></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><img src="img/men.jpg" alt="Avatar" class="profile_pic"></td>
-                        <td>9876</td>
-                        <td>ABC</td>
-                        <td>Airpod</td>
-                        <td>1</td>
-                        <td><div class="status pending">pending</div></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        @yield('content')
     </div>
+    @stack('scripts')
 </body>
 </html>

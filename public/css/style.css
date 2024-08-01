@@ -61,15 +61,15 @@
     font-weight: 600;
 }
 .nav-links a:hover,
-.fa-cart-shopping:hover,
-.fa-heart:hover{
+.user-contents .fa-cart-shopping:hover,
+.user-contents .fa-heart:hover{
     color: var(--accent-color);
 }
 .fa-heart, .fa-cart-shopping{
     position: relative;
 }
 .fa-heart::after,
-.fa-cart-shopping::after{
+.user-contents .fa-cart-shopping::after{
     position: absolute;
     content: '10';
     background-color: var(--accent-color);
