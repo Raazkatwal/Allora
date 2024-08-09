@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('index');
@@ -17,3 +18,5 @@ Route::post('/add', [UserController::class, 'addUser'])->name('addUser');
 Route::fallback(function () {
     return view('error');
 });
+
+Route::get('/counter', Counter::class);
