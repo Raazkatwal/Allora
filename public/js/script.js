@@ -33,12 +33,12 @@ const swiper = new Swiper('.swiper', {
     main_content.classList.remove("disable-click");
     footer.classList.remove("disable-click");
   })
+
   function password_input_type_toggle(a) {
     (a.type=='text')? a.type = 'password' : a.type = 'text';
   }
   eye_icon.forEach(e => {
     e.addEventListener('click', ()=>{
-      console.log(password_input.value);            
       e.classList.toggle("fa-eye");
         password_input_type_toggle(password_input);           
     })
@@ -57,3 +57,4 @@ const swiper = new Swiper('.swiper', {
 
     window.addEventListener('resize', adjustMainContentPadding);
 });
+

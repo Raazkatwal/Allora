@@ -112,7 +112,7 @@ thead {
     z-index: 100;
 }
 .status, .table-btn{
-    background-color: green;
+    background-color: var(--secondary-color);
     color: white;
     font-weight: 600;
     padding: .7rem .5rem;
@@ -132,6 +132,7 @@ thead {
 .add-btn{
     width: 8rem;
     margin: 0 2rem;
+    background-color: green;
 }
 .searchbar{
     outline: none;
@@ -146,4 +147,22 @@ thead {
 }
 .searchbar:focus{
     border: .2rem solid var(--accent-color);
+}
+.delete_modal{
+    margin: auto;
+    padding: 3rem;
+}
+.delete_modal::backdrop{
+    background-color: #00000088;
+}
+.flex-btns{
+    display: flex;
+    gap: 2rem;
+}
+.modal-head{
+    font-size: 2.5rem;
+}
+.modal-text{
+    font-size: 1.5rem;
+    margin: 2.5rem 0;
 }

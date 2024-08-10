@@ -19,7 +19,7 @@
     <div class="main_content">
         <div class="sidebar">
             <div class="sidebar_content">
-                <h1 class="sideheading">Menu</h1>
+                <h1 class="sideheading"> Menu</h1>
                 <div class="sidelinks">
                     <a href=""><i class="fa-solid fa-bag-shopping"></i> Products</a>
                     <a href=""><i class="fa-solid fa-gear"></i> Site settings</a>

@@ -13,6 +13,7 @@ class ProductsTable extends Component
     {
         $products = Product::where('name', 'like', '%' . $this->search . '%')
                             ->orWhere('description', 'like', '%' . $this->search . '%')
+                            ->orWhere('id', 'like', '%' . $this->search . '%')
                             ->get();
         return view('livewire.products-table',
         [
@@ -20,7 +21,7 @@ class ProductsTable extends Component
         ]
     );
     }
-    public function delete(Product $product){
-        $product->delete();
+    public function delete(string $id){
+        Product::find($id)->delete();
     }
 }
