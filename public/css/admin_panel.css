@@ -109,7 +109,7 @@ tbody tr:nth-child(even) {
 thead {
     position: sticky;
     top: 0;        
-    z-index: 100;
+    z-index: 50;
 }
 .status, .table-btn{
     background-color: var(--secondary-color);
@@ -148,11 +148,11 @@ thead {
 .searchbar:focus{
     border: .2rem solid var(--accent-color);
 }
-.delete_modal{
+.delete_modal, .edit_modal{
     margin: auto;
     padding: 3rem;
 }
-.delete_modal::backdrop{
+.delete_modal::backdrop, .edit_modal::backdrop{
     background-color: #00000088;
 }
 .flex-btns{
@@ -165,4 +165,34 @@ thead {
 .modal-text{
     font-size: 1.5rem;
     margin: 2.5rem 0;
+}
+.modal-form{
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    gap: .5rem;
+}
+.modal-form .flex-btns{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+.modal-form #id-input{
+    width: 3rem;
+}
+#modal-textarea{
+    resize: none;
+    width: 35rem;
+    height: 20rem;
+}
+.modal-form .modal-form-input{
+    padding: 1rem;
+    font-size: 1.8rem;
+    width: 25rem;
+}
+.modal-form div:not(.flex-btns){
+    display: flex;
+    flex-direction: column;
+}
+.modal-form label{
+    font-size: 1.5rem;
 }
