@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 class ProductsTable extends Component
 {
     public $search = '';
+    public $name;
+    public $description;
     public function render()
     {
         $products = Product::where('name', 'like', '%' . $this->search . '%')
@@ -23,5 +25,11 @@ class ProductsTable extends Component
     }
     public function delete(string $id){
         Product::find($id)->delete();
+    }
+    public function addNewProduct(){
+        Product::create([
+            'name' => $this->name,
+            'description' => $this->description
+        ]);
     }
 }
