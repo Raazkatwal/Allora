@@ -492,6 +492,14 @@
     width: 8rem;
     background: white;
 }
+.input-error{
+    border: .2rem solid var(--alert-color);
+}
+.input-error-msg{
+    display: block;
+    color: var(--alert-color);
+    font-size: 1.5rem;
+}
 @media screen and (max-width: 1024px) {
     :root{
         font-size: 50%;

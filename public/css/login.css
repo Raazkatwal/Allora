@@ -76,65 +76,6 @@ label{
     cursor: pointer;
     margin-bottom: 2rem;
 }
-.input-error{
-    border: .2rem solid var(--alert-color);
-}
-.input-error-msg{
-    display: block;
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-/* .email-error::after{
-    display: block;
-    content: 'Email already taken';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.username-error::after{
-    display: block;
-    content: 'Username already taken';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.password-error > input,
-.password-not-match-error > input,
-.email-null-error > input,
-.email-error > input,
-.email-not-found-error> input,
-.username-null-error > input,
-.username-error > input{
-    border-color: var(--alert-color);
-}
-.password-error::after{
-    display: block;
-    content: 'Password cant be blank';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.password-not-match-error::after{
-    display: block;
-    content: 'Password didnt match';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.email-null-error::after{
-    display: block;
-    content: 'Email cant be blank';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.email-not-found-error::after{
-    display: block;
-    content: 'Email not found';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-}
-.username-null-error::after{
-    display: block;
-    content: 'Username cant be blank';
-    color: var(--alert-color);
-    font-size: 1.5rem;
-} */
 .linktext{
     font-size: 1.3rem;
 }
