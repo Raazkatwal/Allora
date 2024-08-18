@@ -102,6 +102,11 @@ class ProductsTable extends Component
         Product::destroy($this->productId);
         $this->closeModal();
     }
+    public function deleteUser()
+    {
+        User::destroy($this->productId);
+        $this->closeModal();
+    }
     public function userclick(){
         $this->Usersectionvisible = true;
     }

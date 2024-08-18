@@ -21,7 +21,7 @@
 }
 .sidebar{
     min-height: 90vh;
-    width: 45vh;
+    width: 35vh;
     background-color: #fff;
 }
 .sidebar_content{
@@ -144,6 +144,7 @@ thead {
     background-position: .5rem 50%;
     background-size: 1.5rem;
     font-size: 1.5rem;
+    margin: 0 2rem 0 0;
 }
 .searchbar:focus{
     border: .2rem solid var(--accent-color);
@@ -154,6 +155,10 @@ thead {
 }
 .modal-head{
     font-size: 2.5rem;
+}
+.modal-text{
+    margin: 2rem 0;
+    font-size: 1.5rem;
 }
 .modal-form{
     margin: 2rem 0;
