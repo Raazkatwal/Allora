@@ -1,6 +1,25 @@
+<div class="main_content">
+    <div class="sidebar">
+        <div class="sidebar_content">
+            <h1 class="sideheading"> Menu</h1>
+            <div class="sidelinks">
+                <a wire:click = productclick><i class="fa-solid fa-bag-shopping"></i> Products</a>
+                <a wire:click = userclick><i class="fa-solid fa-user"></i> Users</a>
+                <a href=""><i class="fa-solid fa-gear"></i> Site settings</a>
+                <a href=""><i class="fa-solid fa-cart-shopping"></i> Orders</a>
+            </div>
+                <a href="" onclick="window.close();return false;" class="close_btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit</a>
+        </div>
+    </div>
 <div class="orders_table">
     <h2 class="table_heading">
-        <span>Products</span> 
+        <span>
+            @if ($Usersectionvisible)
+                Users
+            @else
+                Products
+            @endif
+        </span> 
         <div>
             <input wire:model.live.debounce.300ms = "search" type="text" placeholder="Search...." class="searchbar">
             <button class="table-btn add-btn" wire:click="showAddModal">Add <i class="fa-solid fa-plus"></i></button>
@@ -14,16 +33,38 @@
                     <th>name</th>
                     <th>id</th>
                     <th>description</th>
+                    <th>category</th>
                     <th colspan="3">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $p)
+                @if (!$Usersectionvisible)
+                    @foreach ($products as $p)
+                        <tr wire:key={{$p->id}}>
+                            <td>{{ $loop->iteration }}</td>
+                            <td class="shrink-text">{{ $p->name }}</td>
+                            <td>{{ $p->id }}</td>
+                            <td class="shrink-text">{{ $p->description }}</td>
+                            <td>Gaming</td>
+                            <td>
+                                <button class="table-btn view-btn" wire:click="viewProduct({{ $p->id }})">view</button>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn" wire:click="showEditModal({{ $p->id }})">edit</button>
+                            </td>
+                            <td>
+                                <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $p->id }})">delete</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    @foreach ($users as $p)
                     <tr wire:key={{$p->id}}>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="shrink-text">{{ $p->name }}</td>
+                        <td class="shrink-text">{{ $p->email }}</td>
                         <td>{{ $p->id }}</td>
-                        <td class="shrink-text">{{ $p->description }}</td>
+                        <td class="shrink-text">{{ $p->username }}</td>
+                        <td>Gaming</td>
                         <td>
                             <button class="table-btn view-btn" wire:click="viewProduct({{ $p->id }})">view</button>
                         </td>
@@ -34,7 +75,9 @@
                             <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $p->id }})">delete</button>
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
+                @endif
+                
             </tbody>
         </table>
     </div>
@@ -82,4 +125,4 @@
     </div>
     @endif
 </div>
-
+</div>

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\User;
 use Livewire\WithPagination;
 
 class ProductsTable extends Component
@@ -16,6 +17,7 @@ class ProductsTable extends Component
     public $isAddModalOpen = false;
     public $isEditModalOpen = false;
     public $isDeleteModalOpen = false;
+    public $Usersectionvisible = false;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -27,9 +29,14 @@ class ProductsTable extends Component
                             ->orWhere('description', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
                             ->get();
+        $users = User::where('username', 'like', '%' . $this->search . '%')
+                            ->orWhere('email', 'like', '%' . $this->search . '%')
+                            ->orWhere('id', 'like', '%' . $this->search . '%')
+                            ->get();
         return view('livewire.products-table',
         [
-            'products' =>  $products
+            'products' =>  $products,
+            'users' => $users
         ]
     );
     }
@@ -94,5 +101,11 @@ class ProductsTable extends Component
     {
         Product::destroy($this->productId);
         $this->closeModal();
+    }
+    public function userclick(){
+        $this->Usersectionvisible = true;
+    }
+    public function productclick(){
+        $this->Usersectionvisible = false;
     }
 }

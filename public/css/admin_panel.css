@@ -51,6 +51,7 @@
     padding: 1.5rem;
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 .main_content{
     display: grid;
@@ -119,7 +120,6 @@ thead {
     text-align: center;
     border-radius: .5rem;
     text-transform: uppercase;
-    width: 50%;
     margin: auto;
     cursor: pointer;
     border: none;
