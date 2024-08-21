@@ -18,6 +18,15 @@ return new class extends Migration
             $table->string('password', 100);
             $table->timestamps();
         });
+        
+        Schema::create('userinfos', function (Blueprint $table) {
+            $table->id();
+            $table->string('usertype', 15);
+            $table->string('address')->nullable();
+            $table->string('phone', 15)->unique()->nullable();
+            $table->foreignId('user_id')->reference('id')->on('users')->ondelete('cascade');
+            $table->string('photo')->nullable();
+        });
     }
 
     /**
@@ -26,5 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('userinfos');
     }
 };

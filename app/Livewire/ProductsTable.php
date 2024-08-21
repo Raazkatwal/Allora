@@ -5,18 +5,18 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\User;
-use Livewire\WithPagination;
 
 class ProductsTable extends Component
 {
     public $search = '';
     public $name;
     public $description;
-    public $productId;
+    public $Id;
 
     public $isAddModalOpen = false;
     public $isEditModalOpen = false;
     public $isDeleteModalOpen = false;
+    public $isConfirmModalOpen = false;
     public $Usersectionvisible = false;
 
     protected $rules = [
@@ -32,6 +32,7 @@ class ProductsTable extends Component
         $users = User::where('username', 'like', '%' . $this->search . '%')
                             ->orWhere('email', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
+                            ->with('userinfo')
                             ->get();
         return view('livewire.products-table',
         [
@@ -48,7 +49,7 @@ class ProductsTable extends Component
     public function showEditModal($id)
     {
         $this->resetModal();
-        $this->productId = $id;
+        $this->Id = $id;
         $product = Product::findOrFail($id);
         $this->name = $product->name;
         $this->description = $product->description;
@@ -57,7 +58,7 @@ class ProductsTable extends Component
     public function showDeleteModal($id)
     {
         $this->resetModal();
-        $this->productId = $id;
+        $this->Id = $id;
         $this->isDeleteModalOpen = true;
     }
     public function closeModal()
@@ -69,8 +70,9 @@ class ProductsTable extends Component
         $this->isAddModalOpen = false;
         $this->isEditModalOpen = false;
         $this->isDeleteModalOpen = false;
+        $this->isConfirmModalOpen = false;
 
-        $this->reset(['name', 'description', 'productId']);
+        $this->reset(['name', 'description', 'Id']);
     }
     public function addProduct()
     {
@@ -89,7 +91,7 @@ class ProductsTable extends Component
     {
         $this->validate();
 
-        $product = Product::find($this->productId);
+        $product = Product::find($this->Id);
         $product->update([
             'name' => $this->name,
             'description' => $this->description,
@@ -99,12 +101,12 @@ class ProductsTable extends Component
     }
     public function deleteProduct()
     {
-        Product::destroy($this->productId);
+        Product::destroy($this->Id);
         $this->closeModal();
     }
     public function deleteUser()
     {
-        User::destroy($this->productId);
+        User::destroy($this->Id);
         $this->closeModal();
     }
     public function userclick(){
@@ -112,5 +114,14 @@ class ProductsTable extends Component
     }
     public function productclick(){
         $this->Usersectionvisible = false;
+    }
+    public function showConfirmModal($id){
+        $this->resetModal();
+        $this->Id=$id;
+        $this->isConfirmModalOpen = true;
+    }
+    public function changeUser(){
+        User::find($this->Id)->userinfo->update(['usertype' => 'Admin']);
+        $this->closeModal();
     }
 }

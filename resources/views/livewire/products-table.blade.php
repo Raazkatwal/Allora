@@ -14,11 +14,7 @@
 <div class="orders_table">
     <h2 class="table_heading">
         <span>
-            @if ($Usersectionvisible)
-                Users
-            @else
-                Products
-            @endif
+            {{$Usersectionvisible ? 'Users' : 'Products'}}
         </span> 
         <div>
             <input wire:model.live.debounce.300ms = "search" type="text" placeholder="Search...." class="searchbar">
@@ -31,12 +27,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>{{$Usersectionvisible ? 'Username' : 'name'}}</th>
                     <th>id</th>
+                    <th>{{$Usersectionvisible ? 'username' : 'name'}}</th>
                     <th>{{$Usersectionvisible ? 'Email' : 'description'}}</th>
                     @if (!$Usersectionvisible)
                     <th>category</th>
+                    @else
+                    <th>Usertype</th>
                     @endif
                     <th colspan={{!$Usersectionvisible ? '3' : ''}}>Action</th>
                 </tr>
@@ -45,9 +42,8 @@
                 @if (!$Usersectionvisible)
                     @foreach ($products as $p)
                         <tr wire:key={{$p->id}}>
-                            <td>{{ $loop->iteration }}</td>
-                            <td class="shrink-text">{{ $p->name }}</td>
                             <td>{{ $p->id }}</td>
+                            <td class="shrink-text">{{ $p->name }}</td>
                             <td class="shrink-text">{{ $p->description }}</td>
                             <td>Gaming</td>
                             <td>
@@ -64,11 +60,12 @@
                 @else
                     @foreach ($users as $u)
                     <tr wire:key={{$u->id}}>
-                        <td>{{ $loop->iteration }}</td>
-                        <td class="shrink-text">{{ $u->username }}</td>
                         <td>{{ $u->id }}</td>
+                        <td class="shrink-text">{{ $u->username }}</td>
                         <td class="shrink-text">{{ $u->email }}</td>
+                        <td class="shrink-text">{{ $u->userinfo->usertype }}</td>
                         <td>
+                            <button title="{{$u->id}}" class="table-btn view-btn" wire:click="showConfirmModal({{ $u->id }})">make admin</button>
                             <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $u->id }})">delete</button>
                         </td>
                     </tr>
@@ -109,17 +106,28 @@
         </div>
     </div>
     @endif
-    @if ($isDeleteModalOpen)
+    @if ($isDeleteModalOpen || $isConfirmModalOpen)
     <div class="modal_wrapper">
         <div class="modal-content">
-            <h1 class="modal-head">Are you sure ?</h1>
-            <p class="modal-text">Are you sure you want to delete this record ?</p>
+            <h1 class="modal-head">Are you sure?</h1>
+            <p class="modal-text">Are you sure you want to {{$isDeleteModalOpen ? 'delete this record?' : 'make this user an admin?'}}</p>
             <div class="flex-btns">
-                <button class="table-btn delete-btn" wire:click={{ $Usersectionvisible ? 'deleteUser' : 'deleteProduct' }}>Delete</button>
-                <button class="table-btn"  wire:click="closeModal">Cancel</button>
+                <button class="table-btn {{$isDeleteModalOpen ? 'delete-btn' : 'view-btn'}}" 
+                        wire:click="
+                            @if ($Usersectionvisible && $isConfirmModalOpen)
+                                changeUser
+                            @elseif ($Usersectionvisible)
+                                deleteUser
+                            @else 
+                                deleteProduct
+                            @endif">
+                    {{$isDeleteModalOpen ? 'Delete' : 'Confirm'}}
+                </button>
+                <button class="table-btn" wire:click="closeModal">Cancel</button>
             </div>
         </div>
     </div>
-    @endif
+@endif
+
 </div>
 </div>

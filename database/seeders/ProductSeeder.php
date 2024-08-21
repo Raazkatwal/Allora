@@ -15,13 +15,13 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         Product::factory(50)->create();
-        $json = File::get('database/json/product_data.json');
-        $data = collect(json_decode($json));
-        $data->each(function($d){
-            Product::create([
-                'name' => $d->name,
-                'description' => $d->description
-            ]);
-        });
+        // $json = File::get('database/json/product_data.json');
+        // $data = collect(json_decode($json));
+        // $data->each(function($d){
+        //     Product::create([
+        //         'name' => $d->name,
+        //         'description' => $d->description
+        //     ]);
+        // });
     }
 }

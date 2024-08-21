@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserinfoController;
 use App\Http\Controllers\ProductController;
 use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,8 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('products/delete/{id}', 'delete')->name('product.delete');
 });
 Route::post('/add', [UserController::class, 'addUser'])->name('addUser');
+Route::get('/test', [UserController::class, 'test']);
+Route::get('/info', [UserinfoController::class, 'test']);
 Route::fallback(function () {
     return view('error');
 });
