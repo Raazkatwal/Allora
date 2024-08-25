@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index(){
-        $products=Product::all();
-        return view('dashboard', compact('products'));
+        if (!Auth::check() || Auth::user()->userinfo->usertype != 'admin') {
+            return redirect()->route('index');
+        }else {
+            $products=Product::all();
+            return view('dashboard', compact('products'));
+        }
     }
     public function show(string $id){
         $product=Product::find($id);

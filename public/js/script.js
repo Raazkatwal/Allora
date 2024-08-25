@@ -5,6 +5,9 @@ const menu_close_btn = document.querySelector(".fa-xmark");
 const mbl_nav = document.querySelector(".mbl-nav");
 const main_content = document.getElementById("main-content");
 const footer = document.querySelector(".footer-content");
+const modal_open_btn = document.querySelector("#modal-open-btn");
+const modal = document.querySelector("#logout-modal");
+const modal_close_btn = document.querySelector("#modal-close-btn");
 const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
@@ -58,3 +61,11 @@ const swiper = new Swiper('.swiper', {
     window.addEventListener('resize', adjustMainContentPadding);
 });
 
+modal_open_btn.style.cursor='pointer';
+modal_open_btn.addEventListener('click', ()=>{
+  modal.showModal();
+});
+modal_close_btn.addEventListener('click', e=>{
+  e.preventDefault();
+  modal.close();
+});

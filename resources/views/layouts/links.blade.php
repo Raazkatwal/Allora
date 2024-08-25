@@ -7,3 +7,4 @@
 
 <link rel="icon" href= {{ asset('img/logo.png') }} >
 <link rel="stylesheet" href={{asset('css/style.css')}}>
+<link rel="stylesheet" href={{asset('css/admin_panel.css')}}>

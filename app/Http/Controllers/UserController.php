@@ -3,36 +3,51 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Userinfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function addUser(Request $req){
         $req->validate([
-            'email' => 'required|email|unique:App\Models\User,email',
+            'email' => 'required|email|unique:users,email',
             'username' => 'required',
             'password' => 'required|min:6',
         ]);
         $user = User::create([
             'email' => $req->email,
-            'password' => $req->password,
+            'password' => Hash::make($req->password),
             'username' => $req->username,
         ]);
         $user->userinfo()->create([
-            'usertype' => 'Customer',
+            'usertype' => 'customer',
             'address' => '',
             'phone' => '',
             'photo' => ''
         ]);
         if ($user) {
-            return redirect()->route('index');
+            return redirect()->route('login');
         }
     }
-    public function test() {
-        $info = Userinfo::with('user')->find(1);
-        return $info;
-        // $stu = User::with('userinfo')->find(1);
-        // echo $stu->email . "<br>" . $stu->password . "<br>" . $stu->userinfo->address;
+    public function loginUser(Request $req){
+        $req->validate([
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required',
+        ], [
+            'email.exists' => 'This E-mail is not registered.',
+        ]);
+        if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
+            return redirect()->route('index');
+        } else {
+            return back()->withErrors([
+                'password' => 'The Password is incorrect.',
+            ])->withInput();
+        }
+        
+    }
+    public function logoutUser(){
+        Auth::logout();
+        return redirect()->route('index');
     }
 }

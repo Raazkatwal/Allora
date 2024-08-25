@@ -9,8 +9,14 @@
             <a href="#">Categories</a>
             <a href="#">About Us</a>
             <a href="#">Contact Us</a>
-            <a href="#" onclick="window.open('{{route('admin.panel')}}'); return false" target="_blank">Admin</a>
+            @if (Auth::check() && Auth::user()->userinfo->usertype == 'admin')
+            <a href={{route('admin.panel')}} target="_blank">Admin</a>
+            @endif
+            @if (Auth::check())
+            <a id="modal-open-btn" ><i class="fa-regular fa-user"></i> Logout</a>
+            @else
             <a href={{route('login')}}><i class="fa-regular fa-user"></i> Login</a>
+            @endif
         </div>
     </div>
     <div class="user-contents">
@@ -41,3 +47,17 @@
         </div>
     </div>
 </nav>
+
+<dialog id="logout-modal">
+    <div class="modal-content">
+        <h1 class="modal-head">Are you sure ?</h1>
+        <p class="modal-text">Are you sure you want to logout ?</p>
+        <form action= {{ route('logout') }} method="POST">
+            @csrf
+            <div class="flex-btns">
+                <input type="submit" class="table-btn delete-btn" value="Logout">
+                <button class="table-btn" id="modal-close-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</dialog>

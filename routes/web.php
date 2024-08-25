@@ -1,8 +1,6 @@
 <?php
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\UserinfoController;
 use App\Http\Controllers\ProductController;
-use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('index');
@@ -15,11 +13,11 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('products/edit/{id}', 'edit')->name('product.edit');
     Route::get('products/delete/{id}', 'delete')->name('product.delete');
 });
-Route::post('/add', [UserController::class, 'addUser'])->name('addUser');
-Route::get('/test', [UserController::class, 'test']);
-Route::get('/info', [UserinfoController::class, 'test']);
+Route::controller(UserController::class)->group(function () {
+    Route::post('/add', 'addUser')->name('addUser');
+    Route::post('/log', 'loginUser')->name('loginUser');
+    Route::post('/logout', 'logoutUser')->name('logout');
+});
 Route::fallback(function () {
     return view('error');
 });
-
-Route::get('/counter', Counter::class);

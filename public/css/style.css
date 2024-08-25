@@ -338,6 +338,8 @@
 .product-tile{
     width: 22rem;
     border: 0.1rem solid var(--accent-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .slider-product-img{
    width: 100%;
@@ -499,6 +501,13 @@
     display: block;
     color: var(--alert-color);
     font-size: 1.5rem;
+}
+dialog{
+    margin: auto;
+    padding: 2rem;
+}
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
 }
 @media screen and (max-width: 1024px) {
     :root{

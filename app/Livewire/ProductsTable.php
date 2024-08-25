@@ -121,7 +121,7 @@ class ProductsTable extends Component
         $this->isConfirmModalOpen = true;
     }
     public function changeUser(){
-        User::find($this->Id)->userinfo->update(['usertype' => 'Admin']);
+        User::find($this->Id)->userinfo->update(['usertype' => 'admin']);
         $this->closeModal();
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->id();
             $table->string('usertype', 15);
             $table->string('address')->nullable();
-            $table->string('phone', 15)->unique()->nullable();
+            $table->string('phone', 15)->nullable();
             $table->foreignId('user_id')->reference('id')->on('users')->ondelete('cascade');
             $table->string('photo')->nullable();
         });
