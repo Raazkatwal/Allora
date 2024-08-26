@@ -42,8 +42,8 @@
         </div>
         <div class="copyright-section">
             <div class="paying-methods">
-                <img src="img/e_sewa.png" alt="e-sewa">
-                <img src="img/khalti.png" alt="Khalti">
+                <img src={{ asset('img/e_sewa.png') }} alt="e-sewa">
+                <img src={{ asset('img/khalti.png') }} alt="Khalti">
             </div>
             <p class="copyright-text">© {{date("Y")}}, Allora</p>
             <div class="social-media-handles">

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home')->name('index');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
+Route::view('/profile/{name}', 'profile')->name('profile');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('admin.panel');

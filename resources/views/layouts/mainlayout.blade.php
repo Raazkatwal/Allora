@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalabe=no">
     <title>Allora | @yield('title', 'Your Best Fashion Store')</title>
     @stack('links')
+    @include('layouts.links')
 </head>
 <body>
     @include('layouts.navbar')
@@ -15,5 +16,6 @@
     </main>
     @include('layouts.footer')
     @stack('scripts')
+    <script src={{ asset('js/script.js') }}></script>
 </body>
 </html>

@@ -24,7 +24,7 @@
         @if (Auth::check())
         <div class='user-profile-pic'>{{ strtoupper(substr(Auth::user()->username, 0, 1)) }}</div>
         <div id="dropdown" class="dropdown-content">
-            <a href=""><i class="fa-solid fa-user"></i> Profile</a>
+            <a href={{ route('profile', ['name'=>Auth::user()->username]) }}><i class="fa-solid fa-user"></i> Profile</a>
             <a href=""><i class="fa-solid fa-gear"></i> Settings</a>
             <a id="modal-open-btn"><i class="fa-solid fa-power-off"></i> Logout</a>
           </div>
