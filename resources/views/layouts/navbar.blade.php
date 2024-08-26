@@ -12,10 +12,8 @@
             @if (Auth::check() && Auth::user()->userinfo->usertype == 'admin')
             <a href={{route('admin.panel')}} target="_blank">Admin</a>
             @endif
-            @if (Auth::check())
-            <a id="modal-open-btn" ><i class="fa-regular fa-user"></i> Logout</a>
-            @else
-            <a href={{route('login')}}><i class="fa-regular fa-user"></i> Login</a>
+            @if (Auth::guest())
+            <a href={{route('login')}}><i class="fa-solid fa-user"></i> Login</a>
             @endif
         </div>
     </div>
@@ -25,6 +23,11 @@
         <i class="fa-solid fa-cart-shopping"></i>
         @if (Auth::check())
         <div class='user-profile-pic'>{{ strtoupper(substr(Auth::user()->username, 0, 1)) }}</div>
+        <div id="dropdown" class="dropdown-content">
+            <a href=""><i class="fa-solid fa-user"></i> Profile</a>
+            <a href=""><i class="fa-solid fa-gear"></i> Settings</a>
+            <a id="modal-open-btn"><i class="fa-solid fa-power-off"></i> Logout</a>
+          </div>
         @endif
     </div>
 </nav>

@@ -31,9 +31,9 @@
             @endif
             
             <div class="password-options">
-                <div>
+                {{-- <div>
                     <input type="checkbox" id="form-checkbox" name="remember"><label for="form-checkbox"> Remember me</label>
-                </div>
+                </div> --}}
                 <p class="linktext"><a href="#">Forgot Password?</a></p>
             </div>
             <input type="submit" name="submit" value="Login" class="form-btn">

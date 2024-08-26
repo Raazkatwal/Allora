@@ -8,6 +8,8 @@ const footer = document.querySelector(".footer-content");
 const modal_open_btn = document.querySelector("#modal-open-btn");
 const modal = document.querySelector("#logout-modal");
 const modal_close_btn = document.querySelector("#modal-close-btn");
+const dropdown_btn = document.querySelector(".user-profile-pic");
+const dropdown = document.querySelector("#dropdown");
 const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
@@ -61,11 +63,14 @@ const swiper = new Swiper('.swiper', {
     window.addEventListener('resize', adjustMainContentPadding);
 });
 
-modal_open_btn.style.cursor='pointer';
 modal_open_btn.addEventListener('click', ()=>{
   modal.showModal();
 });
 modal_close_btn.addEventListener('click', e=>{
   e.preventDefault();
   modal.close();
+});
+
+dropdown_btn.addEventListener('click', ()=>{  
+  dropdown.classList.toggle("show");
 });
