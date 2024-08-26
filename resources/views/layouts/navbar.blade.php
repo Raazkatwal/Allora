@@ -23,6 +23,9 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <i class="fa-regular fa-heart"></i>
         <i class="fa-solid fa-cart-shopping"></i>
+        @if (Auth::check())
+        <div class='user-profile-pic'>{{ strtoupper(substr(Auth::user()->username, 0, 1)) }}</div>
+        @endif
     </div>
 </nav>
 <nav class="mbl-nav">
