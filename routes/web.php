@@ -7,6 +7,7 @@ Route::view('/', 'home')->name('index');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
 Route::view('/profile/{name}', 'profile')->name('profile');
+Route::view('/product/{id}', 'product')->name('product');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('admin.panel');

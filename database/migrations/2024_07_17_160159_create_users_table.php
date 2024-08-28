@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
         });
         
-        Schema::create('userinfos', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->string('usertype', 15);
             $table->string('address')->nullable();
@@ -35,6 +35,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
-        Schema::dropIfExists('userinfos');
+        Schema::dropIfExists('profiles');
     }
 };

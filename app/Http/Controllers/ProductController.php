@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index(){
-        if (!Auth::check() || Auth::user()->userinfo->usertype != 'admin') {
+        if (!Auth::check() || Auth::user()->profile->usertype != 'admin') {
             return redirect()->route('index');
         }else {
             $products=Product::all();

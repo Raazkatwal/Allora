@@ -10,7 +10,7 @@ class User extends Authenticable
 {
     use HasFactory;
     protected $fillable = ['email', 'username', 'password'];
-    public function userinfo(){
-        return $this->hasOne(Userinfo::class);
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 }

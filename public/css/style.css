@@ -362,6 +362,9 @@
     grid-gap: 1.5rem;
     margin-bottom: 5rem;
 }
+.product-grid a{
+    text-decoration: none;
+}
 .product-tile{
     width: 22rem;
     border: 0.1rem solid var(--accent-color);

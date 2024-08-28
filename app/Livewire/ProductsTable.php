@@ -32,7 +32,7 @@ class ProductsTable extends Component
         $users = User::where('username', 'like', '%' . $this->search . '%')
                             ->orWhere('email', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
-                            ->with('userinfo')
+                            ->with('profile')
                             ->get();
         return view('livewire.products-table',
         [
@@ -121,7 +121,7 @@ class ProductsTable extends Component
         $this->isConfirmModalOpen = true;
     }
     public function changeUser(){
-        User::find($this->Id)->userinfo->update(['usertype' => 'admin']);
+        User::find($this->Id)->profile->update(['usertype' => 'admin']);
         $this->closeModal();
     }
 }

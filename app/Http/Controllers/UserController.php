@@ -20,7 +20,7 @@ class UserController extends Controller
             'password' => Hash::make($req->password),
             'username' => $req->username,
         ]);
-        $user->userinfo()->create([
+        $user->profile()->create([
             'usertype' => 'customer',
             'address' => '',
             'phone' => '',

@@ -9,7 +9,7 @@
             <a href="#">Categories</a>
             <a href="#">About Us</a>
             <a href="#">Contact Us</a>
-            @if (Auth::check() && Auth::user()->userinfo->usertype == 'admin')
+            @if (Auth::check() && Auth::user()->profile->usertype == 'admin')
             <a href={{route('admin.panel')}} target="_blank">Admin</a>
             @endif
             @if (Auth::guest())

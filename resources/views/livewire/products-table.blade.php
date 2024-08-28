@@ -63,7 +63,7 @@
                         <td>{{ $u->id }}</td>
                         <td class="shrink-text">{{ $u->username }}</td>
                         <td class="shrink-text">{{ $u->email }}</td>
-                        <td class="shrink-text">{{ $u->userinfo->usertype }}</td>
+                        <td class="shrink-text">{{ $u->profile->usertype }}</td>
                         <td>
                             <button title="{{$u->id}}" class="table-btn view-btn" wire:click="showConfirmModal({{ $u->id }})">make admin</button>
                             <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $u->id }})">delete</button>

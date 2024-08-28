@@ -46,6 +46,7 @@
     <h1 class="product-grid-heading">Shop bags</h1>
     <div class="product-grid">
 @for ($i=0; $i < 5; $i++)
+    <a href= {{ route('product', ['id'=>$i]) }} >  
     <div class='product-tile'>
         <img src={{ asset("img/bag-1-front.jpg") }} alt='Bag 1' class='slider-product-img'>
         <div class='slider-product-info'>
@@ -53,13 +54,16 @@
             <p class='product-cost'>$ 200</p>
         </div>
     </div>
+    </a>
+    <a href= {{ route('product', ['id'=>$i]) }} >
     <div class='product-tile'>
-        <img src='{{ asset("img/bag-2-front.jpg") }}' alt='Bag 2' class='slider-product-img'>
+        <img src={{ asset("img/bag-2-front.jpg") }} alt='Bag 2' class='slider-product-img'>
         <div class='slider-product-info'>
             <h2 class='slider-product-title'>Men's Fashion Bag</h2>
             <p class='product-cost'>$ 150</p>
         </div>
     </div>
+    </a>
 @endfor
   
         
@@ -83,22 +87,27 @@
     <h1 class="product-grid-heading">Shop Shoes</h1>
     <div class="product-grid">
     @for ($i = 0; $i < 5; $i++)
-        
-    
-<div class='product-tile'>
-    <img src='{{ asset("img/shoe-1.jpg") }}' alt='Shoe 1' class='slider-product-img'>
-    <div class='slider-product-info'>
-        <h2 class='slider-product-title'>Beyond Sky shoes</h2>
-        <p class='product-cost'>$ 190</p>
-    </div>
-</div>
-<div class='product-tile'>
-    <img src='{{ asset("img/shoe-2.jpg") }}' alt='Shoe 2' class='slider-product-img'>
-    <div class='slider-product-info'>
-        <h2 class='slider-product-title'>Roller Skate</h2>
-        <p class='product-cost'>$ 132,00</p> <!-- Note: Corrected the price format -->
-    </div>
-</div>
+        <a href= {{ route('product', ['id'=>$i]) }}>
+
+            
+            <div class='product-tile'>
+                <img src='{{ asset("img/shoe-1.jpg") }}' alt='Shoe 1' class='slider-product-img'>
+                <div class='slider-product-info'>
+                    <h2 class='slider-product-title'>Beyond Sky shoes</h2>
+                    <p class='product-cost'>$ 190</p>
+                </div>
+            </div>
+        </a>
+        <a href="">
+
+            <div class='product-tile'>
+                <img src='{{ asset("img/shoe-2.jpg") }}' alt='Shoe 2' class='slider-product-img'>
+                <div class='slider-product-info'>
+                    <h2 class='slider-product-title'>Roller Skate</h2>
+                    <p class='product-cost'>$ 132,00</p> <!-- Note: Corrected the price format -->
+                </div>
+            </div>
+        </a>
 @endfor
 
         
