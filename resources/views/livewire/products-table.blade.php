@@ -65,8 +65,12 @@
                         <td class="shrink-text">{{ $u->email }}</td>
                         <td class="shrink-text">{{ $u->profile->usertype }}</td>
                         <td>
-                            <button title="{{$u->id}}" class="table-btn view-btn" wire:click="showConfirmModal({{ $u->id }})">make admin</button>
+                            @if ($u->profile->usertype!='admin')
+                            <button class="table-btn view-btn" wire:click="showConfirmModal({{ $u->id }})">make admin</button>
                             <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $u->id }})">delete</button>
+                            @else
+                            <button class="table-btn" disabled style="cursor: not-allowed">already admin</button>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
