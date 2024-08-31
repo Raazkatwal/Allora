@@ -30,23 +30,17 @@
 <div class="related-products-section">
     <h1 class="product-heading related-products-heading">Related Products</h1>
     <div class="product-grid">
-        @for ($i=0; $i < 5; $i++) <a href={{ route('product', ['id'=>$i]) }} >
+        @for ($i=0; $i < 5; $i++) 
+        <a href={{ route('product', ['id'=>$i]) }} >
             <div class='product-tile'>
-                <img src={{ asset("img/bag-1-front.jpg") }} alt='Bag 1' class='slider-product-img'>
+                <img src={{ $i%2==0 ? asset("img/bag-1-front.jpg") : asset("img/bag-2-front.jpg")}} alt='Bag 1' class='slider-product-img'>
                 <div class='slider-product-info'>
-                    <h2 class='slider-product-title'>Fashion Overnight Bag</h2>
+                    <h2 class='slider-product-title'>
+                        {{ $i%2==0 ? "Fashion Overnight Bag" : "Men's Fashion Bag"}}
+                    </h2>
                     <p class='product-cost'>$ 200</p>
                 </div>
             </div>
-            </a>
-            <a href={{ route('product', ['id'=>$i]) }} >
-                <div class='product-tile'>
-                    <img src={{ asset("img/bag-2-front.jpg") }} alt='Bag 2' class='slider-product-img'>
-                    <div class='slider-product-info'>
-                        <h2 class='slider-product-title'>Men's Fashion Bag</h2>
-                        <p class='product-cost'>$ 150</p>
-                    </div>
-                </div>
             </a>
         @endfor
     </div>
