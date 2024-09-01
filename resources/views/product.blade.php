@@ -6,10 +6,16 @@
 <div class="main-product-section">
     <div class="productinfo-section">
         <div class="image-gallery">
-            <h1>Your image here</h1>
+            <div class="image-scroller">
+                @for ($i = 0; $i < 5; $i++)
+                <img src= {{ asset('img/bag-1-front.jpg') }} title="Image {{$i}}">
+                <img src= {{ asset('img/bag-2-front.jpg') }} title="Image {{$i+1}}">
+                @endfor
+            </div>
+            <div class="image-display"><img src= {{ asset('img/bag-3-front.jpg') }} alt="Main Image" class="zoom-image"></div>
         </div>
         <div class="product-info">
-            <h1 class="product-heading">Asus Juj Bag</h1>
+            <h1 class="product-heading">Asus Bag</h1>
             <h2 class="product-price">$121.00</h2>
             <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                     class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -18,9 +24,9 @@
                 debitis?</p>
             <div class="cart-section">
                 <div class="quantity">
-                    <button class="quantity-input-btn">-</button>
-                    <input type="number" class="quantity-input" min="1" value="1" oninput="validity.valid||(value='');">
-                    <button class="quantity-input-btn">+</button>
+                    <button class="quantity-input-btn dec-quantity">-</button>
+                    <input type="number" class="quantity-input total-quantity" min="1" value="1" oninput="validity.valid||(value='');">
+                    <button class="quantity-input-btn inc-quantity">+</button>
                     <button class="cart-btn"><i class="fa-solid fa-bag-shopping"></i> Add to cart</button>
                 </div>
             </div>

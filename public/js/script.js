@@ -115,3 +115,21 @@ window.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', adjustMainContentPadding);
     }
 });
+
+const imageDisplay = document.querySelector('.image-display');
+const zoomImage = imageDisplay.querySelector('.zoom-image');
+
+if (imageDisplay && zoomImage) {
+    imageDisplay.addEventListener('mousemove', function(event) {
+        const rect = imageDisplay.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        zoomImage.style.transformOrigin = `${x}px ${y}px`;
+        zoomImage.style.transform = 'scale(2)';
+    });
+
+    imageDisplay.addEventListener('mouseleave', function() {
+        zoomImage.style.transform = 'scale(1)';
+        zoomImage.style.transformOrigin = 'center';
+    });
+}
