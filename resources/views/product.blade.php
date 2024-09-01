@@ -8,11 +8,11 @@
         <div class="image-gallery">
             <div class="image-scroller">
                 @for ($i = 0; $i < 5; $i++)
-                <img src= {{ asset('img/bag-1-front.jpg') }} title="Image {{$i}}">
-                <img src= {{ asset('img/bag-2-front.jpg') }} title="Image {{$i+1}}">
+                <img src= {{ asset('img/bag-1-front.jpg') }} class="scroller-content" title="Image {{$i}}">
+                <img src= {{ asset('img/bag-2-front.jpg') }} class="scroller-content" title="Image {{$i+1}}">
                 @endfor
             </div>
-            <div class="image-display"><img src= {{ asset('img/bag-3-front.jpg') }} alt="Main Image" class="zoom-image"></div>
+            <div class="image-display"><img alt="Main Image" class="zoom-image"></div>
         </div>
         <div class="product-info">
             <h1 class="product-heading">Asus Bag</h1>

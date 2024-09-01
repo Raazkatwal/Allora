@@ -118,8 +118,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const imageDisplay = document.querySelector('.image-display');
 const zoomImage = imageDisplay.querySelector('.zoom-image');
+const scrollerImages = document.querySelectorAll('.scroller-content');
 
 if (imageDisplay && zoomImage) {
+    zoomImage.src = scrollerImages[0].src;
+    scrollerImages.forEach(e=>{
+      e.addEventListener('click', () => {
+        zoomImage.src = e.src;
+      })
+    })
     imageDisplay.addEventListener('mousemove', function(event) {
         const rect = imageDisplay.getBoundingClientRect();
         const x = event.clientX - rect.left;
