@@ -22,6 +22,8 @@
     cursor: pointer;
     transition: 150ms all ease-in;
     box-sizing: border-box;
+    -webkit-user-drag: none;
+    user-drag: none;
 }
 .image-scroller > img:hover {
     background-color: rgb(220, 220, 220);
@@ -47,6 +49,9 @@
     left: 0;
     transition: transform 0.3s ease-in-out;
     transform-origin: center;
+}
+.zoom-image:hover{
+    cursor: zoom-in;
 }
 .productinfo-section{
     display: grid;
