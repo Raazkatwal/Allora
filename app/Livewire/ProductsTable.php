@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Category;
 
 class ProductsTable extends Component
 {
@@ -17,7 +18,9 @@ class ProductsTable extends Component
     public $isEditModalOpen = false;
     public $isDeleteModalOpen = false;
     public $isConfirmModalOpen = false;
-    public $Usersectionvisible = false;
+    public $UsersSectionvisible = false;
+    public $ProductSectionvisible = true;
+    public $CategoriesSectionvisible = false;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -34,10 +37,15 @@ class ProductsTable extends Component
                             ->orWhere('id', 'like', '%' . $this->search . '%')
                             ->with('profile')
                             ->get();
+        $categories = Category::where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('description', 'like', '%' . $this->search . '%')
+                            ->orWhere('id', 'like', '%' . $this->search . '%')
+                            ->get();
         return view('livewire.products-table',
         [
             'products' =>  $products,
-            'users' => $users
+            'users' => $users,
+            'categories' => $categories
         ]
     );
     }
@@ -53,6 +61,15 @@ class ProductsTable extends Component
         $product = Product::findOrFail($id);
         $this->name = $product->name;
         $this->description = $product->description;
+        $this->isEditModalOpen = true;
+    }
+    public function showCategoryEditModal($id)
+    {
+        $this->resetModal();
+        $this->Id = $id;
+        $c = Category::findOrFail($id);
+        $this->name = $c->name;
+        $this->description = $c->description;
         $this->isEditModalOpen = true;
     }
     public function showDeleteModal($id)
@@ -73,6 +90,41 @@ class ProductsTable extends Component
         $this->isConfirmModalOpen = false;
 
         $this->reset(['name', 'description', 'Id']);
+    }
+    public function addCategory()
+    {
+        $this->validate();
+
+        Category::create([
+            'name' => $this->name,
+            'description' => $this->description,
+        ]);
+        $this->closeModal();
+    }
+    public function viewCategory(int $id){
+
+    }
+    public function updateCategory()
+    {
+        $this->validate();
+
+        $category = Category::find($this->Id);
+        $category->update([
+            'name' => $this->name,
+            'description' => $this->description,
+        ]);
+
+        $this->closeModal();
+    }
+    public function deleteCategory()
+    {
+        Category::destroy($this->Id);
+        $this->closeModal();
+    }
+    public function deleteUser()
+    {
+        User::destroy($this->Id);
+        $this->closeModal();
     }
     public function addProduct()
     {
@@ -104,16 +156,22 @@ class ProductsTable extends Component
         Product::destroy($this->Id);
         $this->closeModal();
     }
-    public function deleteUser()
-    {
-        User::destroy($this->Id);
-        $this->closeModal();
+    public function resetviews(){
+        $this->ProductSectionvisible = false;
+        $this->UsersSectionvisible = false;
+        $this->CategoriesSectionvisible = false;
     }
     public function userclick(){
-        $this->Usersectionvisible = true;
+        $this->resetviews();
+        $this->UsersSectionvisible = true;
     }
     public function productclick(){
-        $this->Usersectionvisible = false;
+        $this->resetviews();
+        $this->ProductSectionvisible = true;
+    }
+    public function categoriesclick(){
+        $this->resetviews();
+        $this->CategoriesSectionvisible = true;
     }
     public function showConfirmModal($id){
         $this->resetModal();

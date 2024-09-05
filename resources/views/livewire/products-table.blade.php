@@ -5,6 +5,7 @@
             <div class="sidelinks">
                 <a wire:click = productclick><i class="fa-solid fa-bag-shopping"></i> Products</a>
                 <a wire:click = userclick><i class="fa-solid fa-user"></i> Users</a>
+                <a wire:click = categoriesclick><i class="fa-solid fa-list"></i> Categories</a>
                 <a href=""><i class="fa-solid fa-gear"></i> Site settings</a>
                 <a href=""><i class="fa-solid fa-cart-shopping"></i> Orders</a>
             </div>
@@ -14,11 +15,17 @@
 <div class="orders_table">
     <h2 class="table_heading">
         <span>
-            {{$Usersectionvisible ? 'Users' : 'Products'}}
+            @if ($ProductSectionvisible)
+            Products
+            @elseif ($UsersSectionvisible)
+            Users
+            @elseif ($CategoriesSectionvisible)
+            Categories
+            @endif
         </span> 
         <div>
             <input wire:model.live.debounce.300ms = "search" type="text" placeholder="Search...." class="searchbar">
-            @if (!$Usersectionvisible)
+            @if (!$UsersSectionvisible)
                 <button class="table-btn add-btn" wire:click="showAddModal">Add <i class="fa-solid fa-plus"></i></button>
             @endif
         </div>
@@ -28,24 +35,26 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>{{$Usersectionvisible ? 'username' : 'name'}}</th>
-                    <th>{{$Usersectionvisible ? 'Email' : 'description'}}</th>
-                    @if (!$Usersectionvisible)
+                    <th>{{$UsersSectionvisible ? 'username' : 'name'}}</th>
+                    <th>{{$UsersSectionvisible ? 'Email' : 'description'}}</th>
+                    @if ($ProductSectionvisible)
                     <th>category</th>
-                    @else
+                    @elseif ($UsersSectionvisible)
                     <th>Usertype</th>
                     @endif
-                    <th colspan={{!$Usersectionvisible ? '3' : ''}}>Action</th>
+                    <th colspan={{!$UsersSectionvisible ? '3' : ''}}>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @if (!$Usersectionvisible)
+                @if ($ProductSectionvisible)
                     @foreach ($products as $p)
                         <tr wire:key={{$p->id}}>
                             <td>{{ $p->id }}</td>
                             <td class="shrink-text">{{ $p->name }}</td>
                             <td class="shrink-text">{{ $p->description }}</td>
+                            @if (!$CategoriesSectionvisible)
                             <td>Gaming</td>
+                            @endif
                             <td>
                                 <button class="table-btn view-btn" wire:click="viewProduct({{ $p->id }})">view</button>
                             </td>
@@ -57,7 +66,7 @@
                             </td>
                         </tr>
                     @endforeach
-                @else
+                @elseif ($UsersSectionvisible)
                     @foreach ($users as $u)
                     <tr wire:key={{$u->id}}>
                         <td>{{ $u->id }}</td>
@@ -74,6 +83,23 @@
                         </td>
                     </tr>
                     @endforeach
+                @else
+                    @foreach ($categories as $c)
+                        <tr wire:key={{$c->id}}>
+                            <td>{{ $c->id }}</td>
+                            <td class="shrink-text">{{ $c->name }}</td>
+                            <td class="shrink-text">{{ $c->description }}</td>
+                            <td>
+                                <button class="table-btn view-btn" wire:click="viewCategory({{ $c->id }})">view</button>
+                            </td>
+                            <td>
+                                <button class="table-btn edit-btn" wire:click="showCategoryEditModal({{ $c->id }})">edit</button>
+                            </td>
+                            <td>
+                                <button class="table-btn delete-btn" wire:click="showDeleteModal({{ $c->id }})">delete</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 @endif
                 
             </tbody>
@@ -82,8 +108,19 @@
     @if ($isAddModalOpen || $isEditModalOpen)
     <div class="modal_wrapper">
         <div class="modal-content">
-            <h1 class="modal-head">{{ $isEditModalOpen ? 'Edit Product' : 'Add Product' }}</h1>
-            <form wire:submit.prevent="{{ $isEditModalOpen ? 'updateProduct' : 'addProduct' }}" class="modal-form">
+            <h1 class="modal-head">
+                @if ($isEditModalOpen)
+                    Edit {{ $ProductSectionvisible ? 'Product' : 'Category' }}
+                @else
+                    Add {{ $ProductSectionvisible ? 'Product' : 'Category' }}
+                @endif
+            </h1>
+            @php
+                $action = $isEditModalOpen
+                ? 'update' . ($ProductSectionvisible ? 'Product' : 'Category')
+                : 'add' . ($ProductSectionvisible ? 'Product' : 'Category');
+            @endphp
+            <form wire:submit.prevent=" {{$action}} " class="modal-form">
                 <div>
                     <label for="name">Name</label>
                     <input type="text" name="name" wire:model.defer="name" class="modal-form-input @error('name') input-error @enderror" autocomplete="off" wire:model="name">
@@ -116,15 +153,19 @@
             <h1 class="modal-head">Are you sure?</h1>
             <p class="modal-text">Are you sure you want to {{$isDeleteModalOpen ? 'delete this record?' : 'make this user an admin?'}}</p>
             <div class="flex-btns">
-                <button class="table-btn {{$isDeleteModalOpen ? 'delete-btn' : 'view-btn'}}" 
-                        wire:click="
-                            @if ($Usersectionvisible && $isConfirmModalOpen)
-                                changeUser
-                            @elseif ($Usersectionvisible)
-                                deleteUser
-                            @else 
-                                deleteProduct
-                            @endif">
+                @php
+                    $action = '';
+                    if ($UsersSectionvisible && $isConfirmModalOpen) {
+                        $action = 'changeUser';
+                    } elseif ($UsersSectionvisible) {
+                        $action = 'deleteUser';
+                    } elseif ($ProductSectionvisible) {
+                        $action = 'deleteProduct';
+                    } else {
+                        $action = 'deleteCategory';
+                    }
+                @endphp
+                <button class="table-btn {{$isDeleteModalOpen ? 'delete-btn' : 'view-btn'}}" wire:click=" {{$action}} ">
                     {{$isDeleteModalOpen ? 'Delete' : 'Confirm'}}
                 </button>
                 <button class="table-btn" wire:click="closeModal">Cancel</button>
