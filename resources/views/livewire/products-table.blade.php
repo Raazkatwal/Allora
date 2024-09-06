@@ -53,7 +53,7 @@
                             <td class="shrink-text">{{ $p->name }}</td>
                             <td class="shrink-text">{{ $p->description }}</td>
                             @if (!$CategoriesSectionvisible)
-                            <td>Gaming</td>
+                            <td>{{$p->category->name}}</td>
                             @endif
                             <td>
                                 <button class="table-btn view-btn" wire:click="viewProduct({{ $p->id }})">view</button>
@@ -128,6 +128,17 @@
                         @error('name') {{$message}} @enderror
                     </span>
                 </div>
+                @if ($ProductSectionvisible)
+                <div>
+                    <label for="category">Category</label>
+                    <select name="category" wire:model="category_id">
+                        <option value="">Select Category</option>
+                        @foreach ($categories as $c)
+                        <option value="{{ $c->id }}">{{$c->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @endif
                 <div>
                     <label for="description">Description</label>
                     <textarea name="" id="modal-textarea" wire:model.defer="description" class="modal-form-input @error('description') input-error @enderror" wire:model="description"></textarea>
@@ -139,6 +150,7 @@
                     <label for="image">Image</label>
                     <input type="file" name="image" class="modal-form-input">
                 </div>
+               
                 <div class="flex-btns">
                     <button type="submit" class="table-btn {{ $isEditModalOpen ? 'edit-btn' : 'add-btn' }}">{{ $isEditModalOpen ? 'Update' : 'Add' }}</button>
                         <button type="button" wire:click="closeModal" class="table-btn close_btn">Cancel</button>

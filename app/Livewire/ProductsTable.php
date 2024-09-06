@@ -13,6 +13,7 @@ class ProductsTable extends Component
     public $name;
     public $description;
     public $Id;
+    public $category_id;
 
     public $isAddModalOpen = false;
     public $isEditModalOpen = false;
@@ -89,7 +90,7 @@ class ProductsTable extends Component
         $this->isDeleteModalOpen = false;
         $this->isConfirmModalOpen = false;
 
-        $this->reset(['name', 'description', 'Id']);
+        $this->reset(['name', 'description', 'Id', 'category_id']);
     }
     public function addCategory()
     {
@@ -129,10 +130,11 @@ class ProductsTable extends Component
     public function addProduct()
     {
         $this->validate();
-
+        // dd($this->category_id);
         Product::create([
             'name' => $this->name,
             'description' => $this->description,
+            'category_id' => $this->category_id,
         ]);
         $this->closeModal();
     }
