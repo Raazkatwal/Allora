@@ -120,7 +120,7 @@
                 ? 'update' . ($ProductSectionvisible ? 'Product' : 'Category')
                 : 'add' . ($ProductSectionvisible ? 'Product' : 'Category');
             @endphp
-            <form wire:submit.prevent=" {{$action}} " class="modal-form">
+            <form wire:submit.prevent=" {{$action}} " class="modal-form" enctype="multipart/form-data">
                 <div>
                     <label for="name">Name</label>
                     <input type="text" name="name" wire:model.defer="name" class="modal-form-input @error('name') input-error @enderror" autocomplete="off" wire:model="name">
@@ -146,10 +146,15 @@
                         @error('description') {{$message}} @enderror
                     </span>
                 </div>
+                @if ($ProductSectionvisible)
                 <div>
                     <label for="image">Image</label>
-                    <input type="file" name="image" class="modal-form-input">
+                    <input type="file" name="image" class="modal-form-input" accept="image/*" wire:model="image">
+                    <span class="input-error-msg">
+                        @error('image') {{$message}} @enderror
+                    </span>
                 </div>
+                @endif
                
                 <div class="flex-btns">
                     <button type="submit" class="table-btn {{ $isEditModalOpen ? 'edit-btn' : 'add-btn' }}">{{ $isEditModalOpen ? 'Update' : 'Add' }}</button>

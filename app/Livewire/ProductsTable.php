@@ -3,17 +3,21 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
 
 class ProductsTable extends Component
 {
+    use WithFileUploads;
+
     public $search = '';
     public $name;
     public $description;
     public $Id;
     public $category_id;
+    public $image;
 
     public $isAddModalOpen = false;
     public $isEditModalOpen = false;
@@ -26,6 +30,7 @@ class ProductsTable extends Component
     protected $rules = [
         'name' => 'required|string|max:255',
         'description' => 'required|string|max:500',
+        'image' => 'nullable|image|max:3000',
     ];
     public function render()
     {
@@ -90,7 +95,7 @@ class ProductsTable extends Component
         $this->isDeleteModalOpen = false;
         $this->isConfirmModalOpen = false;
 
-        $this->reset(['name', 'description', 'Id', 'category_id']);
+        $this->reset(['name', 'description', 'Id', 'category_id', 'image']);
     }
     public function addCategory()
     {
@@ -130,11 +135,13 @@ class ProductsTable extends Component
     public function addProduct()
     {
         $this->validate();
-        // dd($this->category_id);
+        dd($this->image);
+        $imagePath = $this->image->store('images', 'public');
         Product::create([
             'name' => $this->name,
             'description' => $this->description,
             'category_id' => $this->category_id,
+            // 'image' => $imagePath,
         ]);
         $this->closeModal();
     }
