@@ -14,6 +14,7 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('products/view/{id}', 'show')->name('product.view');
     Route::get('products/edit/{id}', 'edit')->name('product.edit');
     Route::get('products/delete/{id}', 'delete')->name('product.delete');
+    Route::post('addpro', 'addProduct')->name('addProduct');
 });
 Route::controller(UserController::class)->group(function () {
     Route::post('/add', 'addUser')->name('addUser');

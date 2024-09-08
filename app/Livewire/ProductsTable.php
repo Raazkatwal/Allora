@@ -132,22 +132,6 @@ class ProductsTable extends Component
         User::destroy($this->Id);
         $this->closeModal();
     }
-    public function addProduct()
-    {
-        $this->validate();
-        dd($this->image);
-        $imagePath = $this->image->store('images', 'public');
-        Product::create([
-            'name' => $this->name,
-            'description' => $this->description,
-            'category_id' => $this->category_id,
-            // 'image' => $imagePath,
-        ]);
-        $this->closeModal();
-    }
-    public function viewProduct(int $id){
-
-    }
     public function updateProduct()
     {
         $this->validate();

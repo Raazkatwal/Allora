@@ -120,25 +120,55 @@
                 ? 'update' . ($ProductSectionvisible ? 'Product' : 'Category')
                 : 'add' . ($ProductSectionvisible ? 'Product' : 'Category');
             @endphp
-            <form wire:submit.prevent=" {{$action}} " class="modal-form" enctype="multipart/form-data">
+            @if ($productSectionvisible)
+            <form action=" {{ route('addProduct') }} " class="modal-form" enctype="multipart/form-data" method="POST">
+                @csrf
                 <div>
                     <label for="name">Name</label>
-                    <input type="text" name="name" wire:model.defer="name" class="modal-form-input @error('name') input-error @enderror" autocomplete="off" wire:model="name">
+                    <input type="text" name="name" class="modal-form-input @error('name') input-error @enderror" autocomplete="off" wire:model = "name">
                     <span class="input-error-msg">
                         @error('name') {{$message}} @enderror
                     </span>
                 </div>
-                @if ($ProductSectionvisible)
                 <div>
-                    <label for="category">Category</label>
-                    <select name="category" wire:model="category_id">
+                    <label for="category_id">Category</label>
+                    <select name="category_id" wire:model = "category_id">
                         <option value="">Select Category</option>
                         @foreach ($categories as $c)
                         <option value="{{ $c->id }}">{{$c->name}}</option>
                         @endforeach
                     </select>
                 </div>
-                @endif
+                <div>
+                    <label for="description">Description</label>
+                    <textarea name="description" wire:model = "description" id="modal-textarea" class="modal-form-input @error('description') input-error @enderror" ></textarea>
+                    <span class="input-error-msg">
+                        @error('description') {{$message}} @enderror
+                    </span>
+                </div>
+                <div>
+                    <label for="image">Image</label>
+                    <input type="file" name="image" class="modal-form-input" accept="image/*">
+                    <span class="input-error-msg">
+                        @error('image') {{$message}} @enderror
+                    </span>
+                </div>
+                <div class="flex-btns">
+                    <input type="submit" class="table-btn {{ $isEditModalOpen ? 'edit-btn' : 'add-btn' }}" value="{{ $isEditModalOpen ? 'Update' : 'Add' }}">
+                        <button type="button" wire:click="closeModal" class="table-btn close_btn">Cancel</button>
+                </div>
+            </form>
+            @else
+                <form wire:submit.prevent=" {{$action}} " class="modal-form">
+                    @csrf
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="modal-form-input @error('name') input-error @enderror" autocomplete="off" wire:model="name">
+                    <span class="input-error-msg">
+                        @error('name') {{$message}} @enderror
+                    </span>
+                </div>
+               
                 <div>
                     <label for="description">Description</label>
                     <textarea name="" id="modal-textarea" wire:model.defer="description" class="modal-form-input @error('description') input-error @enderror" wire:model="description"></textarea>
@@ -146,20 +176,13 @@
                         @error('description') {{$message}} @enderror
                     </span>
                 </div>
-                @if ($ProductSectionvisible)
-                <div>
-                    <label for="image">Image</label>
-                    <input type="file" name="image" class="modal-form-input" accept="image/*" wire:model="image">
-                    <span class="input-error-msg">
-                        @error('image') {{$message}} @enderror
-                    </span>
-                </div>
-                @endif
-               
+
                 <div class="flex-btns">
                     <button type="submit" class="table-btn {{ $isEditModalOpen ? 'edit-btn' : 'add-btn' }}">{{ $isEditModalOpen ? 'Update' : 'Add' }}</button>
                         <button type="button" wire:click="closeModal" class="table-btn close_btn">Cancel</button>
                 </div>
+            @endif
+            
             </form>
         </div>
     </div>
