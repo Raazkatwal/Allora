@@ -148,7 +148,7 @@
                 </div>
                 <div>
                     <label for="image">Image</label>
-                    <input type="file" name="image" class="modal-form-input" accept="image/*">
+                    <input type="file" name="images[]" class="modal-form-input" accept="image/*" multiple>
                     <span class="input-error-msg">
                         @error('image') {{$message}} @enderror
                     </span>
