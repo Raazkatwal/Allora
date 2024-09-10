@@ -18,6 +18,7 @@ class ProductsTable extends Component
     public $Id;
     public $category_id;
     public $image;
+    public $price;
 
     public $isAddModalOpen = false;
     public $isEditModalOpen = false;
@@ -95,7 +96,7 @@ class ProductsTable extends Component
         $this->isDeleteModalOpen = false;
         $this->isConfirmModalOpen = false;
 
-        $this->reset(['name', 'description', 'Id', 'category_id', 'image']);
+        $this->reset(['name', 'description', 'Id', 'category_id', 'image', 'price']);
     }
     public function addCategory()
     {

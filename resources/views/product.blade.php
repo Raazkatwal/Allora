@@ -7,21 +7,18 @@
     <div class="productinfo-section">
         <div class="image-gallery">
             <div class="image-scroller">
-                @for ($i = 0; $i < 5; $i++)
-                <img src= {{ asset('img/bag-1-front.jpg') }} class="scroller-content" title="Image {{$i}}">
-                <img src= {{ asset('img/bag-2-front.jpg') }} class="scroller-content" title="Image {{$i+1}}">
-                @endfor
+                @foreach ($product->images as $image)
+                <img src= {{ asset('storage/' . $image->path) }} class="scroller-content" title="Image">
+                @endforeach
             </div>
             <div class="image-display"><img alt="Main Image" class="zoom-image"></div>
         </div>
         <div class="product-info">
-            <h1 class="product-heading">Asus Bag</h1>
-            <h2 class="product-price">$121.00</h2>
+            <h1 class="product-heading">{{ $product->name }}</h1>
+            <h2 class="product-price">$ {{ $product->price }} </h2>
             <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                     class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis saepe laudantium,
-                ducimus consequuntur qui, inventore hic ipsa velit dolorum, voluptates nobis suscipit laborum adipisci
-                debitis?</p>
+            <p class="description"> {{ $product->description }} </p>
             <div class="cart-section">
                 <div class="quantity">
                     <button class="quantity-input-btn dec-quantity">-</button>
