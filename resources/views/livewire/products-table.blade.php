@@ -58,7 +58,7 @@
                         @if ($p->category)
                         <td>{{ $p->category->name }}</td>
                         @else
-                        <td>Not Set</td>
+                        <td style="color: var(--alert-color); font-weight: 800; text-transform: uppercase">Not Set</td>
                         @endif
                         @endif
                         <td>

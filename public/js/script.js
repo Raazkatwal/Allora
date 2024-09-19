@@ -87,17 +87,24 @@ if (dropdown_btn && dropdown) {
 const increase_quantity = document.querySelector(".inc-quantity");
 const decrease_quantity = document.querySelector(".dec-quantity");
 const total_quantity = document.querySelector(".total-quantity");
+const hidden_quantity = document.getElementById("quantity");
 
 if (increase_quantity && decrease_quantity && total_quantity) {
     increase_quantity.addEventListener('click', () => {
         total_quantity.value++;
+        hidden_quantity.value = total_quantity.value;       
     });
-
+    
     decrease_quantity.addEventListener('click', () => {
         if (total_quantity.value > 1) {
             total_quantity.value--;
+            hidden_quantity.value = total_quantity.value;
         }
     });
+    
+    total_quantity.addEventListener('input', () => {
+        hidden_quantity.value = total_quantity.value;
+    })
 }
 
 // Navbar padding adjustment on load and resize

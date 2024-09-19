@@ -12,6 +12,10 @@
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
+a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
 .desktop-nav{
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -25,4 +26,9 @@ Route::controller(UserController::class)->group(function () {
 });
 Route::fallback(function () {
     return view('error');
+});
+
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart', 'index')->name('cart');
+    Route::post('/cart/add/{id}', 'add')->name('cart.add');
 });
