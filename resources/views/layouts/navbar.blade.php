@@ -20,7 +20,10 @@
     <div class="user-contents">
         <i class="fa-solid fa-magnifying-glass"></i>
         <i class="fa-regular fa-heart"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <a href= {{ route('cart') }} class="cart-wrapper">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="cart-count">{{ collect(session()->get('cart'))->sum('quantity') ?? 0 }}</div>
+        </a>
         @if (Auth::check())
         <div class='user-profile-pic'>{{ strtoupper(substr(Auth::user()->username, 0, 1)) }}</div>
         <div id="dropdown" class="dropdown-content">

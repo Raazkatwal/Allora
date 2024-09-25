@@ -38,15 +38,18 @@ class ProductsTable extends Component
         $products = Product::where('name', 'like', '%' . $this->search . '%')
                             ->orWhere('description', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
+                            ->orderBy('id', 'desc')
                             ->get();
         $users = User::where('username', 'like', '%' . $this->search . '%')
                             ->orWhere('email', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
                             ->with('profile')
+                            ->orderBy('id', 'desc')
                             ->get();
         $categories = Category::where('name', 'like', '%' . $this->search . '%')
                             ->orWhere('description', 'like', '%' . $this->search . '%')
                             ->orWhere('id', 'like', '%' . $this->search . '%')
+                            ->orderBy('id', 'desc')
                             ->get();
         return view('livewire.products-table',
         [

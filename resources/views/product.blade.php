@@ -26,7 +26,7 @@
                         oninput="validity.valid||(value='');">
                     <button class="quantity-input-btn inc-quantity">+</button>
                     @if (Auth::guest())
-                    <a href="{{ route('login') }}" class=""><button class="cart-btn"><i class="fa-solid fa-bag-shopping"></i> Add to cart</a></button>
+                    <a href="{{ route('login') }}"><button class="cart-btn"><i class="fa-solid fa-bag-shopping"></i> Add to cart</a></button>
                     @else
                     <form action="{{ route('cart.add', $product->id) }}" method="POST">
                         @csrf

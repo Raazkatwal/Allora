@@ -11,6 +11,7 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
 Route::view('/profile/{name}', 'profile')->name('profile');
+Route::view('/checkout', 'checkout')->name('cart.page');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');
@@ -31,4 +32,5 @@ Route::fallback(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cart');
     Route::post('/cart/add/{id}', 'add')->name('cart.add');
+    route::post('/cart/remove/{id}', 'remove')->name('cart.remove');
 });

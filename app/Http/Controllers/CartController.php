@@ -9,8 +9,8 @@ class CartController extends Controller
 {
     public function index()
     {
-        $cart = session()->all();
-        return $cart;
+        $cart = session()->get('cart', []);
+        return view('checkout', ['cart' => $cart]);
     }
     public function add(string $id, Request $req)
     {
@@ -18,7 +18,7 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
 
         if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+            $cart[$id]['quantity']+= $req->quantity;
         } else {
             $cart[$id] = [
                 'name' => $pro->name,
@@ -30,6 +30,16 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->route('cart');
+        return redirect()->back();
     }
+    public function remove($id)
+    {
+        $cart = session()->get('cart', []);
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+            session()->put('cart', $cart);
+        }
+        return redirect()->back();
+    }
+
 }

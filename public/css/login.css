@@ -79,3 +79,7 @@ label{
 .linktext{
     font-size: 1.3rem;
 }
+.linktext a{
+    color: rgb(68, 68, 68);
+    text-decoration: underline;
+}

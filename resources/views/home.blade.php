@@ -46,14 +46,22 @@
     </a>
 </div>
 <h1 class="product-grid-heading">Shop bags</h1>
-<div class="product-grid">
-    @foreach ($products as $product)
+<div class="product-grid"> 
+    @php
+        $bags = $products->filter(function ($product){
+            return $product->category && strtolower($product->category->name) == 'bags';
+        })->take(10);
+        $shoes = $products->filter(function ($product){
+            return $product->category && strtolower($product->category->name) == 'shoes';
+        })->take(10);
+    @endphp
+    @foreach ($bags as $product)
     <a href={{ route('product', ['id'=> $product->id]) }} >
         <div class='product-tile'>
             <img src={{ asset('storage/' . $product->images->first()->path) }} alt='Bag 1' class='slider-product-img'>
             <div class='slider-product-info'>
                 <h2 class='slider-product-title'>{{ $product->name }}</h2>
-                <p class='product-cost'>$  {{ $product->price }} </p>
+                <p class='product-cost'>$ {{ $product->price }} </p>
             </div>
         </div>
     </a>
@@ -77,25 +85,16 @@
 </div>
 <h1 class="product-grid-heading">Shop Shoes</h1>
 <div class="product-grid">
-    @for ($i = 0; $i < 5; $i++) <a href={{ route('product', ['id'=>$i]) }}>
+    @foreach ($shoes as $product)
+    <a href={{ route('product', ['id'=> $product->id]) }} >
         <div class='product-tile'>
-            <img src='{{ asset("img/shoe-1.jpg") }}' alt='Shoe 1' class='slider-product-img'>
+            <img src={{ asset('storage/' . $product->images->first()->path) }} alt='Bag 1' class='slider-product-img'>
             <div class='slider-product-info'>
-                <h2 class='slider-product-title'>Beyond Sky shoes</h2>
-                <p class='product-cost'>$ 190</p>
+                <h2 class='slider-product-title'>{{ $product->name }}</h2>
+                <p class='product-cost'>$ {{ $product->price }} </p>
             </div>
         </div>
-        </a>
-        <a href="">
-
-            <div class='product-tile'>
-                <img src='{{ asset("img/shoe-2.jpg") }}' alt='Shoe 2' class='slider-product-img'>
-                <div class='slider-product-info'>
-                    <h2 class='slider-product-title'>Roller Skate</h2>
-                    <p class='product-cost'>$ 132,00</p> <!-- Note: Corrected the price format -->
-                </div>
-            </div>
-        </a>
-        @endfor
+    </a>
+    @endforeach
 </div>
 @endsection

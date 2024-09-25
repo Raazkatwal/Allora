@@ -72,13 +72,15 @@ a{
 .fa-heart, .fa-cart-shopping{
     position: relative;
 }
-.fa-heart::after,
-.user-contents .fa-cart-shopping::after{
+.cart-wrapper{
+    position: relative;
+}
+.cart-count{
     position: absolute;
     content: '10';
     background-color: var(--accent-color);
     border-radius: 100%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 90%;
     height: 80%;
     top: -1rem;
@@ -291,6 +293,7 @@ a{
 }
 .main-content{
     padding: 0 5rem;
+    min-height: 95vh;
     background-color: var(--primary-color);
     overflow: hidden;
 }

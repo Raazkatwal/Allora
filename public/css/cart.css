@@ -1,0 +1,76 @@
+.heading{
+    margin: 2.5rem 0;
+}
+.section-wrapper{
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    height: 70vh;
+    gap: 3rem;
+}
+.cards-section{
+    overflow-y: scroll;
+    max-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.card{
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.card img{
+    width: 15rem;
+    height: 16rem;
+    object-fit: contain;
+    background-color: #fff;
+}
+.product-info{
+    width: 90%;
+    height: 90%;
+    font-size: 1.5rem;
+}
+.name-price-wrapper{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.8rem;
+}
+.product-info .product-price{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+}
+.product-info .product-description{
+    color: grey;
+}
+.product-info .remove-product .remove-btn{
+    border: none;
+    margin: 2rem 0;
+    text-decoration: underline;
+    color: var(--alert-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.summary-grid{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    align-items: center;
+    row-gap: 1.5rem;
+    font-size: 1.5rem;
+}
+.summary-grid .total-price{
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+.checkout-btn{
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 2rem;
+    margin: 3rem 0;
+    border-radius: 5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
