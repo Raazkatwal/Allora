@@ -46,21 +46,28 @@
     </a>
 </div>
 <h1 class="product-grid-heading">Shop bags</h1>
-<div class="product-grid"> 
+<div class="product-grid">
     @php
-        $bags = $products->filter(function ($product){
-            return $product->category && strtolower($product->category->name) == 'bags';
-        })->take(10);
-        $shoes = $products->filter(function ($product){
-            return $product->category && strtolower($product->category->name) == 'shoes';
-        })->take(10);
+    $bags = $products->filter(function ($product){
+    return $product->category && strtolower($product->category->name) == 'bags';
+    })->take(10);
+    $shoes = $products->filter(function ($product){
+    return $product->category && strtolower($product->category->name) == 'shoes';
+    })->take(10);
     @endphp
     @foreach ($bags as $product)
-    <a href={{ route('product', ['id'=> $product->id]) }} >
+    <a href= {{ route('product', ['id'=> $product->id]) }} >
         <div class='product-tile'>
-            <img src={{ asset('storage/' . $product->images->first()->path) }} alt='Bag 1' class='slider-product-img'>
-            <div class='slider-product-info'>
-                <h2 class='slider-product-title'>{{ $product->name }}</h2>
+            <div class="product-img-container">
+                <img src={{ asset('storage/' . $product->images->first()->path) }} alt={{$product->name}} class='product-tile-img'>
+            </div>
+            <div class='product-tile-info'>
+                <div class="product-tile-category"> {{ $product->category->name }} </div>
+                <h2 class='product-tile-title'>{{ $product->name }}</h2>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
                 <p class='product-cost'>$ {{ $product->price }} </p>
             </div>
         </div>
@@ -86,11 +93,18 @@
 <h1 class="product-grid-heading">Shop Shoes</h1>
 <div class="product-grid">
     @foreach ($shoes as $product)
-    <a href={{ route('product', ['id'=> $product->id]) }} >
+    <a href= {{ route('product', ['id'=> $product->id]) }} >
         <div class='product-tile'>
-            <img src={{ asset('storage/' . $product->images->first()->path) }} alt='Bag 1' class='slider-product-img'>
-            <div class='slider-product-info'>
-                <h2 class='slider-product-title'>{{ $product->name }}</h2>
+            <div class="product-img-container">
+                <img src={{ asset('storage/' . $product->images->first()->path) }} alt={{$product->name}} class='product-tile-img'>
+            </div>
+            <div class='product-tile-info'>
+                <div class="product-tile-category"> {{ $product->category->name }} </div>
+                <h2 class='product-tile-title'>{{ $product->name }}</h2>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
                 <p class='product-cost'>$ {{ $product->price }} </p>
             </div>
         </div>
