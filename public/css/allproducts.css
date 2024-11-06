@@ -1,0 +1,126 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+.product-grid-heading{
+    grid-column: 1 / 3;
+}
+.sort-option{
+    grid-column: 2 / 3;
+}
+.sort{
+    font-size: 1.6rem;
+    outline: none;
+}
+.filters-wrapper{
+    width: 100%;
+    height: 100%;
+}
+.all-product-grid{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2rem;
+}
+.filters-heading{
+    font-size: 3rem;
+    font-weight: 400;
+}
+.price-range-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 1.5rem 0;
+    font-size: 1.7rem;
+}
+
+.apply-btn {
+    background-color: #db303e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+ .price-inputs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.price-inputs input {
+    width: 40%;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background: #e4e4e4;
+    border-radius: 5px;
+}
+
+.price-slider {
+    position: absolute;
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 5px;
+    left: 25%;
+    right: 15%;
+}
+
+.range-input {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    pointer-events: none;
+    -webkit-appearance: none;
+    background: none;
+}
+
+.range-input[type="range"]::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #555;
+    pointer-events: auto;
+    -webkit-appearance: none;
+}
+summary{
+    font-size: 1.7rem;
+    user-select: none;
+}
+details{
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+details label{
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+details div{
+    user-select: none;
+}
+details input[type="checkbox"]{
+    -ms-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    transform: scale(1.3);
+    padding: 10px;
+}

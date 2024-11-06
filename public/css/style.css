@@ -375,7 +375,7 @@ a{
 }
 .product-tile{
     width: 22rem;
-    height: 100%;
+    height: 30rem;
     border-radius: 1rem;
     transition: box-shadow 0.3s ease;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 
@@ -560,7 +560,7 @@ a{
 }
 .paying-methods img{
     width: 8rem;
-    background: white;
+    object-fit: contain;
 }
 .input-error{
     border: .2rem solid var(--alert-color);

@@ -6,7 +6,7 @@
         </a>
         <div class="nav-links">
             <a href={{ route('index') }}>Home</a>
-            <a href="#">Categories</a>
+            <a href={{ route('all.products') }}>Products</a>
             <a href="#">About Us</a>
             <a href="#">Contact Us</a>
             @if (Auth::check() && Auth::user()->profile->usertype == 'admin')
