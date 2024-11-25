@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
@@ -51,5 +52,12 @@ class ProductController extends Controller
     
         return redirect()->route('admin.panel');
     
+    }
+    public function allProducts(){
+        $categories = Category::all();
+        $products = Product::with('images', 'category')->get();
+        $min = $products->min('price');
+        $max = $products->max('price');
+        return view('allproducts', compact('products', 'min', 'max', 'categories'));
     }
 }

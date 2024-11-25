@@ -7,7 +7,6 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('index');
-Route::view('products', 'allproducts')->name('all.products');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
 Route::view('/profile/{name}', 'profile')->name('profile');
@@ -15,6 +14,7 @@ Route::view('/checkout', 'checkout')->name('cart.page');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');
+    Route::get('/products', 'allProducts')->name('all.products');
     Route::get('/dashboard', 'index')->name('admin.panel');
     Route::post('addpro', 'addProduct')->name('addProduct');
 });
