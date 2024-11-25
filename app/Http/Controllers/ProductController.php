@@ -56,8 +56,37 @@ class ProductController extends Controller
     public function allProducts(){
         $categories = Category::all();
         $products = Product::with('images', 'category')->get();
-        $min = $products->min('price');
-        $max = $products->max('price');
-        return view('allproducts', compact('products', 'min', 'max', 'categories'));
+        $min = $products->isEmpty() ? 00 : $products->min('price');
+        $max = $products->isEmpty() ? 999 : $products->max('price');
+        return view('allproducts', compact('products', 
+        'min', 'max',
+         'categories'));
+    }
+    public function filterProducts(Request $request){
+        $categories = Category::all();
+        
+        $products = Product::with('images', 'category');
+        if ($request->has('categories')) {
+            $products->whereIn('category_id', $request->categories);
+        }
+
+        if ($request->filled('min-price') && $request->filled('max-price')) {
+            $products->whereBetween('price', [$request->input('min-price'), $request->input('max-price')]);
+        }
+
+        if ($request->sort === 'low_to_high') {
+            $products->orderBy('price', 'asc');
+        } elseif ($request->sort === 'high_to_low') {
+            $products->orderBy('price', 'desc');
+        }
+        $filteredProducts = $products->get();
+        $minPrice = $filteredProducts->min('price');
+        $maxPrice = $filteredProducts->max('price');
+        return view('allproducts', [
+            'products' => $filteredProducts,
+            'categories' => $categories,
+            'min' => $minPrice,
+            'max' => $maxPrice,
+        ]);
     }
 }

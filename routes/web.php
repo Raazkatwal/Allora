@@ -14,6 +14,7 @@ Route::view('/checkout', 'checkout')->name('cart.page');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');
+    Route::get('/products/filter/', 'filterProducts')->name('filterproducts');
     Route::get('/products', 'allProducts')->name('all.products');
     Route::get('/dashboard', 'index')->name('admin.panel');
     Route::post('addpro', 'addProduct')->name('addProduct');

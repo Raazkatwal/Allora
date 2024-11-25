@@ -6,30 +6,31 @@
 <div class="wrapper">
     <div class="product-grid-heading">All Products</div>
 
-    <div class="sort-option">
-        <label for="sort" class="sort">Sort by:</label>
-        <select name="sort" id="sort" class="sort">
-            <option value="">Default sorting</option>
-            <option value="low_to_high">Price: Low to High</option>
-            <option value="high_to_low">Price: High to Low</option>
-        </select>
-    </div>
-
-    <div class="filters-wrapper">
+    <form class="filters-wrapper" method="GET" action="{{ route('filterproducts') }}">
         <h1 class="filters-heading">Filters</h1>
+        <button type="submit" class="apply-btn">Apply</button>
+
+        <div class="sort-option">
+            <label for="sort" class="sort">Sort by:</label>
+            <select name="sort" id="sort" class="sort">
+                <option value="">Default sorting</option>
+                <option value="low_to_high" {{ request('sort') === 'low_to_high' ? 'selected' : '' }}>Price: Low to High</option>
+                <option value="high_to_low" {{ request('sort') === 'high_to_low' ? 'selected' : '' }}>Price: High to Low</option>
+            </select>
+        </div>
+
         <div class="price-range-container">
             <label for="price">Price</label>
             <div class="price-inputs">
-                <input type="number" id="min-price" class="min-input" min={{$min}} max={{$max}} value={{$min}}>
+                <input type="number" id="min-price" name="min-price" class="min-input" min={{$min}} max={{$max}} value={{$min}}>
                 <span>to</span>
-                <input type="number" id="max-price" class="max-input" min={{$min}} max={{$max}} value={{$max}}>
+                <input type="number" id="max-price" name="max-price" class="max-input" min={{$min}} max={{$max}} value={{$max}}>
             </div>
             <div class="slider-container">
                 <div class="price-slider"></div>
                 <input type="range" id="min-range" class="range-input" min={{$min}} max={{$max}} value={{$min}} step="1">
                 <input type="range" id="max-range" class="range-input" min={{$min}} max={{$max}} value={{$max}} step="1">
             </div>
-            <button class="apply-btn">Apply</button>
         </div>
         <div class="categories-wrapper">
             <details open>
@@ -40,7 +41,7 @@
            name="categories[]" 
            id="{{ $category->name }}" 
            value="{{ $category->id }}" 
-           wire:model="selectedCategories">
+           {{ in_array($category->id, request('categories', [])) ? 'checked' : '' }}>
     <label for="{{ $category->name }}">{{ $category->name }}</label>
                 </div>
                 @endforeach
@@ -49,17 +50,17 @@
             </details>
         </div>
         
-    </div>
+    </form>
 
     <div class="all-product-grid">
-        @foreach ($products as $product)
+        @forelse ($products as $product)
         <a href="{{ route('product', ['id' => $product->id]) }}">
             <div class="product-tile">
                 <div class="product-img-container">
                     <img src="{{ asset('storage/' . $product->images->first()->path) }}" alt="{{ $product->name }}" class="product-tile-img">
                 </div>
                 <div class="product-tile-info">
-                    <div class="product-tile-category"> {{ $product->category ? $product->category->name : '' }} </div>
+                    <div class="product-tile-category"> {{ $product->category ? $product->category->name : 'uncategorized' }} </div>
                     <h2 class="product-tile-title">{{ $product->name }}</h2>
                     <div class="review-stars">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -70,7 +71,9 @@
                 </div>
             </div>
         </a>
-        @endforeach
+        @empty
+            <h1>No Products Found</h1>
+        @endforelse
     </div>
 </div>
 
