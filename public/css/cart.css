@@ -115,3 +115,26 @@
     50%{ transform: scale(0.9); }
     100% { transform: scale(1) }
 }
+.no-items{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.no-items-heading{
+    font-size: 5rem;
+}
+.return-btn{
+    margin: 1.5rem 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 1.5rem 2rem;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: .2rem;
+    cursor: pointer;
+}

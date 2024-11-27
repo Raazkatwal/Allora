@@ -2,15 +2,17 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('index');
+Route::view('/test', 'test');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
 Route::view('/profile/{name}', 'profile')->name('profile');
-Route::view('/checkout', 'checkout')->name('cart.page');
+Route::post('/checkout', [PaymentController::class, 'index'])->name('checkout');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');
