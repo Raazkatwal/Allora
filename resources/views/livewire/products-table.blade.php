@@ -62,7 +62,9 @@
                         @endif
                         @endif
                         <td>
-                            <button class="table-btn view-btn" wire:click="viewProduct({{ $p->id }})">view</button>
+                            <a href=" {{ route('product', ['id'=>$p->id]) }} ">
+                                <button class="table-btn view-btn">view</button>
+                            </a>
                         </td>
                         <td>
                             <button class="table-btn edit-btn" wire:click="showEditModal({{ $p->id }})">edit</button>

@@ -74,3 +74,44 @@
     font-size: 1.8rem;
     cursor: pointer;
 }
+.payment-method{
+    grid-column: 1 / 3;
+}
+.payment-method .options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+.payment-method .options div{
+    width: 100%;
+    height: 5rem;
+    border-radius: .5rem;
+    display: grid;
+    place-items: center;
+    transition: 250ms all ease-in-out;
+    cursor: pointer;
+}
+.bounce-animation{
+    animation: bounce 250ms ease-in-out;
+}
+.esewa, .cash{
+    border: .2rem solid #60BA47;
+}
+.khalti{
+    border: .2rem solid #4F286F;
+}
+.khalti-clicked{
+    background-color: #4F286F;
+    color: white;
+}
+.option-clicked{
+    background-color: #60BA47;
+    color: white;
+}
+@keyframes bounce {
+    0% { transform: scale(1) }
+    50%{ transform: scale(0.9); }
+    100% { transform: scale(1) }
+}
