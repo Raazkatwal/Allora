@@ -8,11 +8,11 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('index');
-Route::view('/test', 'test');
 Route::view('/login', 'login')->name('login');
 Route::view('/signup', 'signin')->name('signin');
 Route::view('/profile/{name}', 'profile')->name('profile');
 Route::post('/checkout', [PaymentController::class, 'index'])->name('checkout');
+Route::post('/checkout/khalti', [PaymentController::class, 'handleKhaltiPayment'])->name('submit_khalti_payment');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');

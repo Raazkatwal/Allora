@@ -36,14 +36,15 @@
 @endpush
 @section('content')
 @if (collect(session()->get('cart'))->sum('quantity') == 0)
-    <div class="no-items">
-        <div>
-            <h1 class="no-items-heading">No items added on cart</h1>
-            <a href="{{ route('index') }}"><button class="return-btn">Continue Shopping <i class="fa-solid fa-arrow-right"></i></button></a>
-        </div>
+<div class="no-items">
+    <div>
+        <h1 class="no-items-heading">No items added on cart</h1>
+        <a href="{{ route('index') }}"><button class="return-btn">Continue Shopping <i
+                    class="fa-solid fa-arrow-right"></i></button></a>
     </div>
+</div>
 @else
-    
+
 <div class="section-wrapper">
     <div>
         <h1 class="heading">Total Items : {{ collect(session()->get('cart'))->sum('quantity') ?? 0 }}</h1>
@@ -55,6 +56,9 @@
             $name = Auth::user()->username;
             $intName = (int) $name;
             $uuid = "order-" . $intName . "-" . rand(1000, 9999);
+            $cart = session()->get('cart');
+            $firstItem = reset($cart);
+            $purchase_order_name = $firstItem['name'];
             @endphp
             @foreach ($cart as $id => $item)
             <div class="card">
@@ -105,6 +109,11 @@
                 <input type="hidden" name="delivery_charge" value="{{$shipment}}">
                 <input type="hidden" name="total_amount" value="{{$total+$shipment+$tax}}">
                 <input type="hidden" name="transaction_uuid" value="{{$uuid}}">
+
+                <input type="hidden" name="purchase_order_name" value="{{$purchase_order_name}}">
+                <input type="hidden" name="customer_name" value="{{Auth::user()->username}}">
+                <input type="hidden" name="customer_email" value="{{Auth::user()->email}}">
+
             </div>
             <button class="checkout-btn" type="submit">Checkout</button>
         </form>
