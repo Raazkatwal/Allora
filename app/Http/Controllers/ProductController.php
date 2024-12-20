@@ -10,12 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index(){
-        if (!Auth::check() || Auth::user()->profile->usertype != 'admin') {
-            return redirect()->route('index');
-        }else {
             $products=Product::all();
             return view('dashboard', compact('products'));
-        }
     }
     public function show(string $id){
         $product = Product::with('images')->find($id);

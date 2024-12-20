@@ -9,7 +9,7 @@
                 <p>Address: <span class="footer-content-color">123 Street Name, City, Country</span></p>
             </div>
             <div>
-                <h1>Useful Links</h1>
+                <h1 class="text-3xl">Useful Links</h1>
                 <div class="footer-nav-links">
                     <a href="index.php">Home</a>
                     <a href="#">Categories</a>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div>
-                <h1>Customer Service</h1>
+                <h1 class="text-3xl">Customer Service</h1>
                 <div class="footer-nav-links">
                     <a href="#">Payment Methods</a>
                     <a href="#">Money-back Guarantee!</a>
@@ -31,11 +31,11 @@
             </div>
             <div>
                 <form class="footer-form">
-                    <h1>Newsletter</h1>
+                    <h1 class="text-3xl">Newsletter</h1>
                     <span class="footer-content-color">Get all the latest information, Sales and Offers.</span>
-                    <div>
-                        <input type="email" placeholder="email@example.com" class="footer-text-input" required>
-                        <button type="submit" class="footer-form-btn"><i class="fa-solid fa-paper-plane"></i></button>
+                    <div class="flex items-center">
+                        <input type="email" placeholder="email@example.com" class="footer-text-input py-10 px-5" required>
+                        <button type="submit" class="footer-form-btn h-full py-10"><i class="fa-solid fa-paper-plane -translate-y-2/3"></i></button>
                     </div>
                 </form>
             </div>
