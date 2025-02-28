@@ -15,8 +15,8 @@ class PageController extends Controller
     public function profile(string $username){
         $user = User::where('username', $username)
                 ->with('profile')
-                ->get();
-        return $user;
-        // return view('profile', ['$user']);
+                ->first();
+        // return $user;
+        return view('profile', compact('user'));
     }
 }
