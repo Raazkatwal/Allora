@@ -15,7 +15,7 @@
             </div>
         </div>
         <a href="/">
-            <button class="mt-5 w-max px-8 h-[4.5rem] bg-secondary text-primary text-[1.4rem] font-bold rounded-[0.5rem] border-none outline-none cursor-pointer">
+            <button class="mt-5 w-max px-8 h-[4.5rem] bg-secondary text-primary text-[1.4rem] font-bold rounded-[0.5rem] border-none outline-hidden cursor-pointer">
                 <i class="fa-solid fa-shopping-cart"></i> Continue Shopping
             </button>
         </a>
