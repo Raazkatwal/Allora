@@ -4,9 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         @vite('resources/css/app.css')
-        <title>{{ $title ?? 'Page Title' }}</title>
+        <title>{{ $title ?? env('APP_NAME') }}</title>
+        <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+        @livewireStyles
+        {{-- @fluxAppearance --}}
     </head>
-    <body>
+    <body class="font-poppins">
+        <div wire:ignore>
+            @livewire('NavBar')
+        </div>
         {{ $slot }}
+        @livewire('footer')
+        @fluxScripts
+        @livewireScripts
     </body>
 </html>
