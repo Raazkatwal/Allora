@@ -16,10 +16,10 @@ class adminUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->profile->usertype == 'admin' ) {
+        if (Auth::user()->profile->usertype == 'admin') {
             return $next($request);
         }else{
-            return redirect()->route('error.page');
+            return redirect('/');
         }
     }
 }

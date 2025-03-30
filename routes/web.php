@@ -8,30 +8,44 @@ use App\Http\Controllers\ProductController;
 use App\Http\Middleware\adminUser;
 use App\Http\Middleware\guestOnly;
 use App\Http\Middleware\validUser;
+use App\Livewire\AllProducts;
+use App\Livewire\Dashboard;
 use App\Livewire\Home;
+use App\Livewire\Login;
 use Illuminate\Support\Facades\Route;
 
-Route::controller(PageController::class)->group(function (){
+Route::controller(PageController::class)->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::get('/profile/{name}','profile')->name('profile');
-    });
+    Route::get('/profile/{name}', 'profile')->name('profile');
+});
+
 Route::get('/', Home::class)->name('index');
-Route::view('/login', 'login')->name('login')->middleware(guestOnly::class);
+Route::view('test', 'test');
+Route::get('/products', AllProducts::class)->name('all.products');
+Route::get('/login', Login::class)->name('login')->middleware(guestOnly::class);
+
+Route::middleware([ 'auth', adminUser::class])->prefix('admin')->group(function () {
+    Route::get('dashboard', Dashboard::class)->name('admin.panel');
+});
+// Route::get('/admin/dashboard', 'index')->name('admin.panel')
+//     ->middleware(adminUser::class);
+
+// Route::view('/login', 'login')->name('login')->middleware(guestOnly::class);
 Route::view('/signup', 'signin')->name('signin')->middleware(guestOnly::class);
 
 
-Route::controller(PaymentController::class)->group(function (){
-Route::post('/checkout', 'index')->name('checkout')->middleware(validUser::class);
-Route::post('/checkout/khalti','handleKhaltiPayment')->name('submit_khalti_payment')->middleware(validUser::class);
+Route::controller(PaymentController::class)->group(function () {
+    Route::post('/checkout', 'index')->name('checkout')->middleware(validUser::class);
+    Route::post('/checkout/khalti', 'handleKhaltiPayment')->name('submit_khalti_payment')->middleware(validUser::class);
 });
 
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}', 'show')->name('product');
     Route::get('/products/filter/', 'filterProducts')->name('filterproducts');
-    Route::get('/products', 'allProducts')->name('all.products');
-    Route::get('/admin/dashboard', 'index')->name('admin.panel')
-            ->middleware(adminUser::class);
+    // Route::get('/products', 'allProducts')->name('all.products');
+    // Route::get('/admin/dashboard', 'index')->name('admin.panel')
+    //     ->middleware(adminUser::class);
     Route::post('addpro', 'addProduct')->name('addProduct');
 });
 Route::controller(UserController::class)->group(function () {

@@ -1,4 +1,4 @@
-<footer class="mt-40 bg-gray-800 ">
+<footer class="bg-gray-800 text-sm">
     <div class="grid grid-cols-1 md:grid-cols-4 px-20 py-8 text-white justify-items-center">
         <div class="flex flex-col gap-8">
             <a href="{{ route('index') }}" wire:navigate class="flex items-center mr-8">
@@ -9,7 +9,7 @@
             <p>Address: <span class="text-gray-500">123 Street Name, City, Country</span></p>
         </div>
         <div>
-            <h1 class="text-2xl">Useful Links</h1>
+            <h1 class="text-lg">Useful Links</h1>
             <div class="mt-8 flex flex-col gap-5">
                 <a class="text-gray-500 w-fit hover:text-sky-500" href="{{ route('index') }}" wire:navigate>Home</a>
                 <a class="text-gray-500 w-fit hover:text-sky-500" href="#">Categories</a>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div>
-            <h1 class="text-2xl">Customer Service</h1>
+            <h1 class="text-lg">Customer Service</h1>
             <div class="mt-8 flex flex-col gap-5">
                 <a class="text-gray-500 w-fit hover:text-sky-500" href="#">Payment Methods</a>
                 <a class="text-gray-500 w-fit hover:text-sky-500" href="#">Money-back Guarantee!</a>
@@ -31,12 +31,12 @@
         </div>
         <div>
             <form class="flex flex-col gap-5">
-                <h1 class="text-2xl">Newsletter</h1>
+                <h1 class="text-lg">Newsletter</h1>
                 <span class="text-gray-500">Get all the latest information, Sales and Offers.</span>
                 <div class="flex items-center">
                     {{-- <flux:input label="Email" placeholder="email@example.com"/> --}}
-                    <input type="email" placeholder="email@example.com" class="w-60 h-12 border-none outline-none rounded-l-lg text-lg bg-white/10 text-white px-5" required>
-                    <button type="submit" class="border-none outline-none h-12 w-[70px] rounded-r-lg text-lg text-white bg-sky-500 cursor-pointer grid place-items-center"><x-lucide-send class="w-5" /></button>
+                    <input type="email" placeholder="email@example.com" class="w-60 h-12 border-none outline-none rounded-l-lg text-sm bg-white/10 text-white px-5" required>
+                    <button type="submit" aria-label="Submit" class="border-none outline-none h-12 w-[70px] rounded-r-lg text-lg text-white bg-sky-500 cursor-pointer grid place-items-center"><x-lucide-send class="w-5" /></button>
                 </div>
             </form>
         </div>
@@ -48,9 +48,9 @@
         </div>
         <p class="text-sm">&copy; {{date("Y")}}, Allora. Made by Raj Katwal</p>
         <div class="flex gap-5">
-            <button class="rounded-full border border-sky-500 bg-transparent w-5 h-5 cursor-pointer p-5"><x-lucide-facebook /></button>
-            <button class="rounded-full border border-sky-500 bg-transparent w-5 h-5 cursor-pointer p-5"><x-lucide-instagram /></button>
-            <button class="rounded-full border border-sky-500 bg-transparent w-5 h-5 cursor-pointer p-5"><x-lucide-twitter /></button>
+            <a href="#" title="Facebook" class="border border-sky-500 size-12 bg-transparent rounded-full grid place-items-center"><x-lucide-facebook class="w-6" /></a>
+            <a href="#" title="Instagram" class="border border-sky-500 size-12 bg-transparent rounded-full grid place-items-center"><x-lucide-instagram class="w-6" /></a>
+            <a href="#" title="Twitter" class="border border-sky-500 size-12 bg-transparent rounded-full grid place-items-center"><x-lucide-twitter class="w-6" /></a>
         </div>
     </div>
 </footer>

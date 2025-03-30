@@ -16,6 +16,6 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.home')->layout('components.layouts.app', ['title' => $this->title]);
+        return view('livewire.home')->layout('components.layouts.app', ['title' => $this->title, 'mt' => '40']);
     }
 }

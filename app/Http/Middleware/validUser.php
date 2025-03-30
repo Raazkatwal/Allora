@@ -19,7 +19,7 @@ class validUser
         if (Auth::check()) {
             return $next($request);
         }else{
-            return view('login');
+            return redirect('login');
         }
     }
 }
