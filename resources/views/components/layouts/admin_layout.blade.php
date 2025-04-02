@@ -12,7 +12,7 @@
         {{-- @fluxAppearance --}}
     </head>
     <body class="font-poppins">
-        <div class="grid grid-cols-[18%_82%] grid-rows-[10%_90%]">
+        <div class="grid grid-cols-[20%_80%] grid-rows-[10%_90%]">
             <div wire:ignore class="row-span-2">
                 @livewire('AdminNavBar')
             </div>

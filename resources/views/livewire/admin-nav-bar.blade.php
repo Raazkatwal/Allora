@@ -8,19 +8,19 @@
         <!-- Navigation Links -->
         <nav class="flex flex-col gap-2 w-full">
             <a href="{{ route('admin.panel') }}"
-                class="flex items-center gap-3 p-3 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200 {{ request()->routeIs('admin.panel') ? 'bg-indigo-800' : '' }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
                 wire:navigate>
                 <x-lucide-layout-dashboard class="w-5 h-5" />
                 <span class="text-sm font-medium">Dashboard</span>
             </a>
-            <a href=""
-                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+            <a href="{{ route('admin.products') }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
                 wire:navigate>
-                <x-lucide-shopping-bag class="w-5 h-5" />
+                <x-lucide-package-2 class="w-5 h-5" />
                 <span class="text-sm font-medium">Products</span>
             </a>
-            <a href=""
-                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+            <a href="{{ route('admin.categories') }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
                 wire:navigate>
                 <x-lucide-folders class="w-5 h-5" />
                 <span class="text-sm font-medium">Categories</span>
@@ -35,9 +35,8 @@
 
         <!-- Logout (Bottom) -->
         <div class="mt-auto">
-            <a href=""
-                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-200 w-full"
-                wire:navigate>
+            <a href="{{ route('index') }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-red-600 hover:text-white transition-colors duration-200 w-full">
                 <x-lucide-log-out class="w-5 h-5" />
                 <span class="text-sm font-medium">Exit</span>
             </a>

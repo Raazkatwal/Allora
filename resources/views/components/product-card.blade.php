@@ -19,7 +19,11 @@
 </a> --}}
 
 
+<<<<<<< Updated upstream
 <a href="{{ $href }}" class="block transform transition-all duration-300 hover:-translate-y-2">
+=======
+{{-- <a href="{{ $href }}" class="block transform transition-all duration-300 hover:-translate-y-2">
+>>>>>>> Stashed changes
     <div class='w-64 h-80 rounded-2xl p-4 bg-white
         transition-all duration-300
         shadow-[0_6px_12px_rgba(0,0,0,0.1)]
@@ -28,14 +32,20 @@
         hover:border-transparent
         group'>
 
+<<<<<<< Updated upstream
         {{-- Product Badge --}}
+=======
+>>>>>>> Stashed changes
         @if(isset($discount))
             <div class="absolute top-4 right-4 bg-emerald-500 text-white text-xs px-2 py-1 rounded-full">
                 {{ $discount }}% OFF
             </div>
         @endif
 
+<<<<<<< Updated upstream
         {{-- Product Image --}}
+=======
+>>>>>>> Stashed changes
         <div class="relative overflow-hidden rounded-xl mb-3">
             <img
                 src="{{ $image }}"
@@ -46,21 +56,31 @@
             >
         </div>
 
+<<<<<<< Updated upstream
         {{-- Product Details --}}
         <div class='text-center'>
             {{-- Category --}}
+=======
+        <div class='text-center'>
+>>>>>>> Stashed changes
             <div class="tracking-widest uppercase text-xs text-gray-400 font-medium mb-1">
                 {{ $category ?? 'Uncategorized' }}
             </div>
 
+<<<<<<< Updated upstream
             {{-- Product Name --}}
+=======
+>>>>>>> Stashed changes
             <h2 class='text-lg font-bold text-gray-800 mb-2 truncate
                 transition-colors duration-300
                 group-hover:text-sky-600'>
                 {{ $name }}
             </h2>
 
+<<<<<<< Updated upstream
             {{-- Rating --}}
+=======
+>>>>>>> Stashed changes
             <div class="flex justify-center items-center mb-2">
                 @php
                     $rating = 2.5;
@@ -80,7 +100,10 @@
                 <span class="text-xs text-gray-500 ml-2">({{ $reviews ?? 0 }})</span>
             </div>
 
+<<<<<<< Updated upstream
             {{-- Price --}}
+=======
+>>>>>>> Stashed changes
             <div class="flex justify-center items-center space-x-2">
                 <p class='text-lg font-bold text-gray-900'>
                     ${{ number_format($price, 2) }}
@@ -99,5 +122,152 @@
         Add to Cart
     </button>
     </div>
+<<<<<<< Updated upstream
 
+=======
+</a> --}}
+
+{{-- <a href="{{ $href }}" class="block group transform transition-all duration-300 hover:-translate-y-1.5">
+    <div class="relative w-72 rounded-xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-gray-200">
+        @if(isset($discount))
+            <div class="absolute top-4 left-4 z-10 bg-gradient-to-br from-pink-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-lg shadow-md">
+                {{ $discount }}% OFF
+            </div>
+        @endif
+
+        <div class="relative h-48 w-full overflow-hidden">
+            <img
+                src="{{ $image }}"
+                alt="{{ $name }}"
+                class="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <div class="p-4">
+            <p class="text-xs uppercase tracking-wide text-gray-500 font-medium mb-1 truncate">
+                {{ $category ?? 'Uncategorized' }}
+            </p>
+
+            <h2 class="text-xl font-semibold text-gray-900 truncate mb-2 group-hover:text-indigo-600 transition-colors duration-300">
+                {{ $name }}
+            </h2>
+
+            <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-1">
+                    @php
+                        $rating = 4.2;
+                        $fullStars = floor($rating);
+                        $halfStar = $rating - $fullStars >= 0.5;
+                    @endphp
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $fullStars)
+                            <x-lucide-star class="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        @elseif($i == $fullStars + 1 && $halfStar)
+                            <x-lucide-star class="w-4 h-4 fill-yellow-200 text-yellow-200" />
+                        @else
+                            <x-lucide-star class="w-4 h-4 text-gray-200" />
+                        @endif
+                    @endfor
+                    <span class="text-xs text-gray-500">({{ $reviews ?? 0 }})</span>
+                </div>
+                <span class="text-xs text-gray-600">{{ $stock ?? rand(0, 50) }} in stock</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <p class="text-xl font-bold text-gray-900">
+                        ${{ number_format($price, 2) }}
+                    </p>
+                    @if(isset($originalPrice))
+                        <p class="text-sm text-gray-400 line-through">
+                            ${{ number_format($originalPrice, 2) }}
+                        </p>
+                    @endif
+                </div>
+                <button class="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700">
+                    <x-lucide-shopping-cart class="w-5 h-5" />
+                </button>
+            </div>
+        </div>
+
+        <button class="w-full bg-indigo-600 text-white py-2.5 text-sm font-medium transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-4 flex items-center justify-center gap-2">
+            <x-lucide-shopping-cart class="w-4 h-4" /> Add to Cart
+        </button>
+
+        <button class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors duration-200">
+            <x-lucide-heart class="w-5 h-5" />
+        </button>
+    </div>
+</a> --}}
+
+<a href="{{ $href }}" class="block group transform transition-all duration-300 hover:-translate-y-1">
+    <div class="relative w-72 rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 overflow-hidden">
+        @if(isset($discount))
+            <div class="absolute top-3 left-3 bg-gradient-to-br from-orange-500 to-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm z-10">
+                {{ $discount }}% OFF
+            </div>
+        @endif
+
+        <div class="relative h-48 w-full overflow-hidden">
+            <img
+                src="{{ $image }}"
+                alt="{{ $name }}"
+                class="object-cover h-full w-full transition-transform duration-400 group-hover:scale-105"
+            >
+            <div class="absolute inset-0 bg-gray-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <div class="p-5">
+            <p class="text-xs uppercase tracking-wide text-gray-500 font-medium mb-1 truncate">
+                {{ $category ?? 'Uncategorized' }}
+            </p>
+
+            <h2 class="text-xl font-semibold text-gray-900 truncate mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                {{ $name }}
+            </h2>
+
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-1">
+                    @php
+                        $rating = 4.2;
+                        $fullStars = floor($rating);
+                        $halfStar = $rating - $fullStars >= 0.5;
+                    @endphp
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $fullStars)
+                            <x-lucide-star class="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                        @elseif($i == $fullStars + 1 && $halfStar)
+                            <x-lucide-star class="w-4 h-4 fill-yellow-200 text-yellow-200" />
+                        @else
+                            <x-lucide-star class="w-4 h-4 text-gray-200" />
+                        @endif
+                    @endfor
+                    <span class="text-xs text-gray-500">({{ $reviews ?? 0 }})</span>
+                </div>
+                <span class="text-xs {{ ($stock ?? rand(0, 50)) < 10 ? 'text-red-500' : 'text-gray-600' }}">{{ $stock ?? rand(0, 50) }} in stock</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <p class="text-xl font-bold text-gray-900">
+                        ${{ number_format($price, 2) }}
+                    </p>
+                    @if(isset($originalPrice))
+                        <p class="text-sm text-gray-400 line-through">
+                            ${{ number_format($originalPrice, 2) }}
+                        </p>
+                    @endif
+                </div>
+                <button class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors duration-300 group-hover:shadow-md">
+                    <x-lucide-heart class="w-5 h-5" />
+                </button>
+            </div>
+        </div>
+
+        <button class="w-full bg-blue-600 text-white py-2.5 text-sm font-medium rounded-b-xl hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
+            <x-lucide-shopping-cart class="w-4 h-4" /> Add to Cart
+        </button>
+    </div>
+>>>>>>> Stashed changes
 </a>

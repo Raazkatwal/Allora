@@ -9,9 +9,11 @@ use App\Http\Middleware\adminUser;
 use App\Http\Middleware\guestOnly;
 use App\Http\Middleware\validUser;
 use App\Livewire\AllProducts;
+use App\Livewire\CategoriesTable;
 use App\Livewire\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\ProductsTable;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(PageController::class)->group(function () {
@@ -26,6 +28,8 @@ Route::get('/login', Login::class)->name('login')->middleware(guestOnly::class);
 
 Route::middleware([ 'auth', adminUser::class])->prefix('admin')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('admin.panel');
+    Route::get('products', ProductsTable::class)->name('admin.products');
+    Route::get('categories', CategoriesTable::class)->name('admin.categories');
 });
 // Route::get('/admin/dashboard', 'index')->name('admin.panel')
 //     ->middleware(adminUser::class);
