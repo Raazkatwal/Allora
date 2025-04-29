@@ -14,14 +14,13 @@ class Dashboard extends Component
     public $totalCategories;
     public $totalSales = 0;
     public $ordersToday = 0;
-    public $lowStockProducts;
+    public $lowStockProducts = 20;
     public $completedOrders = 10;
 
     public function mount()
     {
         $this->totalUsers = User::count();
         $this->totalProducts = Product::count();
-        $this->lowStockProducts = Product::count();
         $this->totalCategories = Category::count();
     }
     public function render()

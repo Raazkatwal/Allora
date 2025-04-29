@@ -1,3 +1,16 @@
+@props([
+    'name' => 'Unnamed Product',
+    'price' => 0,
+    'category' => 'Uncategorized',
+    'href' => '#',
+    'image' => '/images/default.png',
+    'discount' => null,
+    'originalPrice' => null,
+    'reviews' => 0,
+    'stock' => null,
+])
+
+
 {{-- <a href={{ $href }} class="h-80">
     <div
         class='w-56 h-72 rounded-2xl p-3 transition-shadow duration-300 shadow-[0_6px_12px_rgba(0,0,0,0.15),0_4px_8px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_32px_rgba(0,0,0,0.25),0_8px_16px_rgba(0,0,0,0.2)]'>
@@ -19,11 +32,7 @@
 </a> --}}
 
 
-<<<<<<< Updated upstream
-<a href="{{ $href }}" class="block transform transition-all duration-300 hover:-translate-y-2">
-=======
 {{-- <a href="{{ $href }}" class="block transform transition-all duration-300 hover:-translate-y-2">
->>>>>>> Stashed changes
     <div class='w-64 h-80 rounded-2xl p-4 bg-white
         transition-all duration-300
         shadow-[0_6px_12px_rgba(0,0,0,0.1)]
@@ -32,20 +41,12 @@
         hover:border-transparent
         group'>
 
-<<<<<<< Updated upstream
-        {{-- Product Badge --}}
-=======
->>>>>>> Stashed changes
         @if(isset($discount))
             <div class="absolute top-4 right-4 bg-emerald-500 text-white text-xs px-2 py-1 rounded-full">
                 {{ $discount }}% OFF
             </div>
         @endif
 
-<<<<<<< Updated upstream
-        {{-- Product Image --}}
-=======
->>>>>>> Stashed changes
         <div class="relative overflow-hidden rounded-xl mb-3">
             <img
                 src="{{ $image }}"
@@ -56,31 +57,17 @@
             >
         </div>
 
-<<<<<<< Updated upstream
-        {{-- Product Details --}}
         <div class='text-center'>
-            {{-- Category --}}
-=======
-        <div class='text-center'>
->>>>>>> Stashed changes
             <div class="tracking-widest uppercase text-xs text-gray-400 font-medium mb-1">
                 {{ $category ?? 'Uncategorized' }}
             </div>
 
-<<<<<<< Updated upstream
-            {{-- Product Name --}}
-=======
->>>>>>> Stashed changes
             <h2 class='text-lg font-bold text-gray-800 mb-2 truncate
                 transition-colors duration-300
                 group-hover:text-sky-600'>
                 {{ $name }}
             </h2>
 
-<<<<<<< Updated upstream
-            {{-- Rating --}}
-=======
->>>>>>> Stashed changes
             <div class="flex justify-center items-center mb-2">
                 @php
                     $rating = 2.5;
@@ -100,10 +87,6 @@
                 <span class="text-xs text-gray-500 ml-2">({{ $reviews ?? 0 }})</span>
             </div>
 
-<<<<<<< Updated upstream
-            {{-- Price --}}
-=======
->>>>>>> Stashed changes
             <div class="flex justify-center items-center space-x-2">
                 <p class='text-lg font-bold text-gray-900'>
                     ${{ number_format($price, 2) }}
@@ -122,9 +105,6 @@
         Add to Cart
     </button>
     </div>
-<<<<<<< Updated upstream
-
-=======
 </a> --}}
 
 {{-- <a href="{{ $href }}" class="block group transform transition-all duration-300 hover:-translate-y-1.5">
@@ -236,11 +216,11 @@
                     @endphp
                     @for ($i = 1; $i <= 5; $i++)
                         @if ($i <= $fullStars)
-                            <x-lucide-star class="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            <x-lucide-star class="size-4 fill-yellow-400 text-yellow-400" />
                         @elseif($i == $fullStars + 1 && $halfStar)
-                            <x-lucide-star class="w-4 h-4 fill-yellow-200 text-yellow-200" />
+                            <x-lucide-star class="size-4 fill-yellow-200 text-yellow-200" />
                         @else
-                            <x-lucide-star class="w-4 h-4 text-gray-200" />
+                            <x-lucide-star class="size-4 text-gray-200" />
                         @endif
                     @endfor
                     <span class="text-xs text-gray-500">({{ $reviews ?? 0 }})</span>
@@ -269,5 +249,4 @@
             <x-lucide-shopping-cart class="w-4 h-4" /> Add to Cart
         </button>
     </div>
->>>>>>> Stashed changes
 </a>

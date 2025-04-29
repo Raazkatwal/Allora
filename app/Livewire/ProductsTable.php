@@ -15,6 +15,7 @@ class ProductsTable extends Component
     public $products;
     public $users;
     public $categories;
+    public bool $test;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -23,6 +24,7 @@ class ProductsTable extends Component
     ];
     public function mount()
     {
+        $this->test = false;
         $this->products = Product::latest()->get();
         $this->users = User::all();
         $this->categories = Category::all();

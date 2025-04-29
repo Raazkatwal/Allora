@@ -27,7 +27,7 @@
                         <td class="p-4 text-gray-700 text-center">{{ $item->category->name }}</td>
                         <td class="p-4 text-gray-700 text-center">${{ number_format($item->price, 2) }}</td>
                         <td class="p-4 text-gray-700 text-center">{{ rand(0, 150) }}</td>
-                        <td class="p-4 text-gray-700 text-center"><flux:switch enabled/></td>
+                        <td class="p-4 text-gray-700 text-center"><flux:switch wire:model="test"/></td>
                         <td class="p-4 flex gap-2 justify-center">
                             <button wire:click="openModal('view', {{ $item->id }})" class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-md hover:bg-indigo-200 transition-colors duration-200 text-sm cursor-pointer">
                                 View

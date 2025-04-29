@@ -25,7 +25,7 @@ class Login extends Component
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember_me)) {
             return $this->redirect(Home::class);
         } else {
-            $this->addError('password', 'The Password is incorrect.');;
+            $this->addError('password', 'The Password is incorrect.');
         }
     }
     public function signup(){

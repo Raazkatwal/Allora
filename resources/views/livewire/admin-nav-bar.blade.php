@@ -1,5 +1,5 @@
 <div>
-    <aside class="bg-gray-900 h-screen w-64 flex flex-col gap-6 p-4 shadow-lg">
+    <aside class="bg-gray-900 h-screen w-64 flex flex-col gap-6 p-4 shadow-lg fixed">
         <!-- Logo -->
         <div class="flex justify-center">
             @include('components.logo_white')
@@ -8,7 +8,7 @@
         <!-- Navigation Links -->
         <nav class="flex flex-col gap-2 w-full">
             <a href="{{ route('admin.panel') }}"
-                class="flex items-center gap-3 p-3 rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
                 wire:navigate>
                 <x-lucide-layout-dashboard class="w-5 h-5" />
                 <span class="text-sm font-medium">Dashboard</span>
@@ -25,8 +25,14 @@
                 <x-lucide-folders class="w-5 h-5" />
                 <span class="text-sm font-medium">Categories</span>
             </a>
-            <a href=""
-                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
+            <a href="{{ route('admin.orders') }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
+                wire:navigate>
+                <x-lucide-list-checks class="w-5 h-5" />
+                <span class="text-sm font-medium">Orders</span>
+            </a>
+            <a href="{{ route('admin.settings') }}"
+                class="flex items-center gap-3 p-3 rounded-lg text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200" wire:current="bg-indigo-600 hover:bg-indigo-700"
                 wire:navigate>
                 <x-lucide-settings class="w-5 h-5" />
                 <span class="text-sm font-medium">Settings</span>

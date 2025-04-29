@@ -13,6 +13,7 @@
                     <th class="p-4 text-center text-sm font-semibold">ID</th>
                     <th class="p-4 text-center text-sm font-semibold">Name</th>
                     <th class="p-4 text-center text-sm font-semibold">No. of Products</th>
+                    <th class="p-4 text-center text-sm font-semibold">Created At</th>
                     <th class="p-4 text-center text-sm font-semibold">Actions</th>
                 </tr>
             </thead>
@@ -22,6 +23,7 @@
                         <td class="p-4 text-gray-700 text-center">{{ $loop->iteration }}</td>
                         <td class="p-4 text-gray-700 text-center">{{ $item->name }}</td>
                         <td class="p-4 text-gray-700 text-center">{{ $item->product->count() }}</td>
+                        <td class="p-4 text-gray-700 text-center">{{ $item->created_at->format('M j, Y') }}</td>
                         <td class="p-4 flex gap-2 justify-center">
                             <button wire:click="openModal('view', {{ $item->id }})" class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-md hover:bg-indigo-200 transition-colors duration-200 text-sm cursor-pointer">
                                 View

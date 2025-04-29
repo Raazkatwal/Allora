@@ -21,11 +21,11 @@
             @guest
                 <a class="transition ease-in delay-100 hover:text-blue-500 text-sky-600 flex items-center gap-2" href={{route('login')}} wire:navigate><x-lucide-user class="w-5" /> Login / Register</a>
             @endguest
-            <x-lucide-search class="w-5 text-sky-600" />
-            <x-lucide-heart class="w-5 text-sky-600" />
-            <a href={{ route('cart') }} class="cart-wrapper">
-                <x-lucide-shopping-cart class="w-5 text-sky-600" />
-                {{-- <div class="cart-count">{{ collect(session()->get('cart'))->sum('quantity') ?? 0 }}</div> --}}
+            <x-lucide-search class="w-7 text-sky-600" />
+            <x-lucide-heart class="w-7 text-sky-600" />
+            <a href={{ route('cart') }} class="relative">
+                <x-lucide-shopping-cart class="w-7 text-sky-600" />
+                <div class="bg-sky-600 absolute top-0 right-0 grid place-items-center rounded-full translate-x-1/2 -translate-y-1/2 size-6 text-xs text-white">99</div>
             </a>
             @if (Auth::check())
             <div class='size-10 bg-emerald-400 grid place-items-center cursor-pointer relative rounded-full select-none'

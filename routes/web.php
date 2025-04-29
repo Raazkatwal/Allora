@@ -8,11 +8,14 @@ use App\Http\Controllers\ProductController;
 use App\Http\Middleware\adminUser;
 use App\Http\Middleware\guestOnly;
 use App\Http\Middleware\validUser;
+use App\Livewire\AdminSettings;
 use App\Livewire\AllProducts;
+use App\Livewire\Cart;
 use App\Livewire\CategoriesTable;
 use App\Livewire\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Login;
+use App\Livewire\OrdersTable;
 use App\Livewire\ProductsTable;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +33,8 @@ Route::middleware([ 'auth', adminUser::class])->prefix('admin')->group(function 
     Route::get('dashboard', Dashboard::class)->name('admin.panel');
     Route::get('products', ProductsTable::class)->name('admin.products');
     Route::get('categories', CategoriesTable::class)->name('admin.categories');
+    Route::get('orders', OrdersTable::class)->name('admin.orders');
+    Route::get('settings', AdminSettings::class)->name('admin.settings');
 });
 // Route::get('/admin/dashboard', 'index')->name('admin.panel')
 //     ->middleware(adminUser::class);
@@ -64,8 +69,9 @@ Route::get('/404', function () {
     return view('error');
 })->name('error.page');
 
-Route::controller(CartController::class)->group(function () {
-    Route::get('/cart', 'index')->name('cart');
-    Route::post('/cart/add/{id}', 'add')->name('cart.add');
-    route::post('/cart/remove/{id}', 'remove')->name('cart.remove');
-});
+// Route::controller(CartController::class)->group(function () {
+//     Route::get('/cart', 'index')->name('cart');
+//     Route::post('/cart/add/{id}', 'add')->name('cart.add');
+//     route::post('/cart/remove/{id}', 'remove')->name('cart.remove');
+// });
+Route::get('cart', Cart::class)->name('cart');
