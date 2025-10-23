@@ -3,7 +3,7 @@
     'price' => 0,
     'category' => 'Uncategorized',
     'href' => '#',
-    'image' => '/images/default.png',
+    'image' => 'storage/images/default.png',
     'discount' => null,
     'originalPrice' => null,
     'reviews' => 0,

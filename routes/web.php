@@ -16,6 +16,7 @@ use App\Livewire\Dashboard;
 use App\Livewire\Home;
 use App\Livewire\Login;
 use App\Livewire\OrdersTable;
+use App\Livewire\ProductPage;
 use App\Livewire\ProductsTable;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ Route::middleware([ 'auth', adminUser::class])->prefix('admin')->group(function 
 });
 // Route::get('/admin/dashboard', 'index')->name('admin.panel')
 //     ->middleware(adminUser::class);
+Route::get('/product/{id}', ProductPage::class)->name('product');
 
 // Route::view('/login', 'login')->name('login')->middleware(guestOnly::class);
 Route::view('/signup', 'signin')->name('signin')->middleware(guestOnly::class);
@@ -50,7 +52,7 @@ Route::controller(PaymentController::class)->group(function () {
 
 
 Route::controller(ProductController::class)->group(function () {
-    Route::get('/product/{id}', 'show')->name('product');
+    // Route::get('/product/{id}', 'show')->name('product');
     Route::get('/products/filter/', 'filterProducts')->name('filterproducts');
     // Route::get('/products', 'allProducts')->name('all.products');
     // Route::get('/admin/dashboard', 'index')->name('admin.panel')

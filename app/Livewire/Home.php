@@ -9,9 +9,9 @@ class Home extends Component
 {
     public $title = "Home | Allora";
     public $products;
-    
+
     public function mount(){
-        $this->products = Product::with('images')->get();
+        $this->products = Product::with('images', 'category')->get();
     }
 
     public function render()

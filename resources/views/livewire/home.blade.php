@@ -31,19 +31,19 @@
     <h1 class="my-15 text-center text-6xl">Shop bags</h1>
     <div class="grid md:grid-cols-4 grid-cols-2 gap-4 px-12">
         @php
-        $bags = $products->filter(function ($product){
-        return $product->category && strtolower($product->category->name) == 'bags';
-        })->take(10);
-        $shoes = $products->filter(function ($product){
-        return $product->category && strtolower($product->category->name) == 'shoes';
-        })->take(10);
+            $bags = $products
+                ->filter(function ($product) {
+                    return $product->category && strtolower($product->category->name) == 'bags';
+                })
+                ->take(10);
+            $shoes = $products
+                ->filter(function ($product) {
+                    return $product->category && strtolower($product->category->name) == 'shoes';
+                })
+                ->take(10);
         @endphp
         @foreach ($bags as $product)
-
-        <x-product-card :name="$product->name" :price="$product->price" :category="$product->category->name"
-            :href="route('product', ['id'=> $product->id])"
-            :image="asset('storage/' . $product->images->first()->path)" />
-
+            <x-product-card :name="$product->name" :price="$product->price" :category="$product->category->name" :href="route('product', ['id' => $product->id])" :image="asset($product->images->first()->path)" />
         @endforeach
     </div>
     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 my-16 h-52">
@@ -67,11 +67,7 @@
     <h1 class="my-10 text-center text-5xl">Shop Shoes</h1>
     <div class="grid md:grid-cols-4 grid-cols-2 gap-4 px-12">
         @foreach ($shoes as $product)
-
-        <x-product-card :name="$product->name" :price="$product->price" :category="$product->category->name"
-            :href="route('product', ['id'=> $product->id])"
-            :image="asset('storage/' . $product->images->first()->path)" />
-
+            <x-product-card :name="$product->name" :price="$product->price" :category="$product->category->name" :href="route('product', ['id' => $product->id])" :image="asset($product->images->first()->path)" />
         @endforeach
     </div>
 </div>

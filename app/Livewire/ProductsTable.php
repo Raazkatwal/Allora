@@ -25,7 +25,7 @@ class ProductsTable extends Component
     public function mount()
     {
         $this->test = false;
-        $this->products = Product::latest()->get();
+        $this->products = Product::with('category')->latest()->get();
         $this->users = User::all();
         $this->categories = Category::all();
     }
